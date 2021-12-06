@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "brandz-user",
+    "slug": "brandz-user",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "brandz-user"
+}
