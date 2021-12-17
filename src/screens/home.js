@@ -5,7 +5,7 @@ export function Homepage() {
   return (
     <View style={styles.container}>
       <Text>Home screen</Text>
-      <Button title="BACX"></Button>
+      <Button title="BACK"></Button>
     </View>
   );
 }
