@@ -4,8 +4,7 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 export function Homepage() {
   return (
     <View style={styles.container}>
-      <Text>Home screen</Text>
-      <Button title="BACK"></Button>
+      <Text>Homepage</Text>
     </View>
   );
 }
@@ -13,7 +12,5 @@ export function Homepage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
