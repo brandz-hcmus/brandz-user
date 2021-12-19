@@ -3,26 +3,25 @@ import { StyleSheet, Text, View } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { Homepage } from '../screens/Homepage';
 import NotificationPage from '../screens/NotificationPage';
-import {Entypo} from '@expo/vector-icons'
-import {Icon} from 'react-native-elements'
+import {FontAwesome} from '@expo/vector-icons'
 
 const Tab=createBottomTabNavigator();
 
-const BottomMenu = () => {
+const TabScreens = () => {
     return (
         <Tab.Navigator
             initialRouteName="Home"
             screenOptions={{
-                tabBarActiveTintColor:'#e91e63',
-            }}
+                tabBarActiveTintColor: '#2f95dc',
+              }}
         >
             <Tab.Screen 
                 name="Home"
                 component={Homepage}
                 options={{
                     tabBarLabel:'Home',
-                    tabBarIcon:({tintColor,size})=>{
-                        <Icon name="home" color={'#e6e6e6'} size={size} />
+                    tabBarIcon:({color})=>{
+                        <FontAwesome name="home" color={color} />
                     }
                 }}
             />
@@ -31,8 +30,8 @@ const BottomMenu = () => {
                 component={NotificationPage}
                 options={{
                     tabBarLabel:'Notification',
-                    tabBarIcon:({color,size})=>{
-                        <Icon name="bell" color={color} size={size}></Icon>
+                    tabBarIcon:({color})=>{
+                        <FontAwesome name="bell" color={color}></FontAwesome>
                     },
                     tabBarBadge:3,
                 }}
@@ -42,6 +41,6 @@ const BottomMenu = () => {
     )
 }
 
-export default BottomMenu
+export default TabScreens
 
 const styles = StyleSheet.create({})

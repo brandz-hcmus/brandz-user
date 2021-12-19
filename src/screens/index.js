@@ -2,10 +2,11 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ScreenName } from '../share/configs/routers';
-import { Homepage } from './home';
+import { Homepage } from './Homepage';
 import { StatusBar } from 'react-native';
-import NotificationPage from './notification';
+import NotificationPage from './NotificationPage';
 import BottomMenu from '../components/BottomMenu';
+import TabScreens from './TabScreens';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -14,25 +15,15 @@ export default function Navigation() {
       <StatusBar backgroundColor="#086981" barStyle="light-content" />
 
       <NavigationContainer>
-        {/* <Stack.Navigator
-          initialRouteName={ScreenName.HOME_SCREEN}
-          screenOptions={{
-            headerTintColor: '#ffffff',
-            headerBackTitle: 'Trở về',
-          }}
+        <Stack.Navigator
+          initialRouteName={ScreenName.MAIN_SCREEN}
         >
           <Stack.Screen
-            name={ScreenName.HOME_SCREEN}
-            component={Homepage}
+            name={ScreenName.MAIN_SCREEN}
+            component={TabScreens}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name={ScreenName.NOTIFICATION_SCREEN}
-            component={NotificationPage}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator> */}
-          <BottomMenu></BottomMenu>
+        </Stack.Navigator>
       </NavigationContainer>
     </>
   );

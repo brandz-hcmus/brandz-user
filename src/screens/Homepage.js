@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import {Entypo} from '@expo/vector-icons'
 
 export function Homepage() {
   return (
     <View style={styles.container}>
-      <Text>Homepage</Text>
+      <Entypo name="home" size={24}></Entypo>
     </View>
   );
 }

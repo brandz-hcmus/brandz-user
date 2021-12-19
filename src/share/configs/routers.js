@@ -1,4 +1,5 @@
 export const ScreenName={
+    MAIN_SCREEN:'Main',
     HOME_SCREEN:'Home',
     NOTIFICATION_SCREEN:'Notification'
 }
