@@ -1,29 +1,28 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScreenName } from '../share/configs/routers';
-import { Homepage } from './home';
 import { StatusBar } from 'react-native';
+import { ScreenName, ScreenTitle } from '../share/configs/routers';
+import { Homepage } from './home';
+import { CartScreen } from './cart';
+import { colors } from '../styles/color';
+
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
   return (
     <>
-      <StatusBar backgroundColor="#086981" barStyle="light-content" />
+      <StatusBar backgroundColor={colors.black} />
 
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName={ScreenName.HOME_SCREEN}
           screenOptions={{
-            headerTintColor: '#ffffff',
-            headerBackTitle: 'Trở về',
+            headerShown: false,
           }}
+          initialRouteName={ScreenName.HOME_SCREEN}
         >
-          <Stack.Screen
-            name={ScreenName.HOME_SCREEN}
-            component={Homepage}
-            options={{ headerShown: false }}
-          />
+          <Stack.Screen name={ScreenName.HOME_SCREEN} component={Homepage} />
+          <Stack.Screen name={ScreenName.CART_SCREEN} component={CartScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
