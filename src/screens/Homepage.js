@@ -3,6 +3,7 @@ import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import HomeHeader from '../components/HomeHeader';
 import Banner from '../components/Banner';
 import CategoryList from '../components/CategoryList';
+import Label from '../components/Label';
 
 export function Homepage() {
   return (
