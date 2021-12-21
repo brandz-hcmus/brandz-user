@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
-import { AntDesign, Feather } from '@expo/vector-icons';
+import { AntDesign, Feather,Ionicons } from '@expo/vector-icons';
 
 const HomeHeader = () => {
     return (
@@ -10,7 +10,7 @@ const HomeHeader = () => {
                 <TextInput style={styles.inputWrapper} placeholder='Tìm kiếm...'></TextInput>
                 <Feather style={styles.cameraIcon} name="camera" size={20} color="black" />
             </View>
-            <AntDesign name="shoppingcart" size={24} color="black" />
+            <Ionicons name="cart-outline" size={24} color="white" />
         </View>
     ) 
 }
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     container:{
         display:'flex',
         flexDirection:'row',
-        backgroundColor:'rgba(196, 196, 196, 1)',
+        backgroundColor:'rgba(0,0,0,0.8)',
         height: '3rem',
         width: '100%',
         justifyContent:'space-evenly',
