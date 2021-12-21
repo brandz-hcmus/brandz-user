@@ -4,7 +4,7 @@ import StaticImages from '../share/static/images'
 
 const Banner = () => {
     return (
-        <View >
+        <View>
             <Image source={StaticImages.banner} style={styles.bannerWrapper}></Image>
         </View>
     )

@@ -1,6 +1,9 @@
 const StaticImages={
     //logo
-    hugu_logo: require('../../../static/logo/hugu_logo.png'),
+    hugu: require('../../../static/logo/hugu_logo.png'),
+    mende: require('../../../static/logo/mende.jpg'),
+    swe: require('../../../static/logo/swe.jpg'),
+    davies: require('../../../static/logo/davies.jpg'),
 
     //banner
     banner: require('../../../static/banner.jpg'),

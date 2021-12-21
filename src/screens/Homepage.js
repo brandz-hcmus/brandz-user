@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import HomeHeader from '../components/HomeHeader';
 import Banner from '../components/Banner';
 import CategoryList from '../components/CategoryList';
-import Label from '../components/Label';
+import BUList from '../components/BUList';
 
 export function Homepage() {
   return (
@@ -12,6 +12,7 @@ export function Homepage() {
       <ScrollView>
         <Banner />
         <CategoryList />
+        <BUList />
       </ScrollView>
     </SafeAreaView>
   );
@@ -19,6 +20,6 @@ export function Homepage() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, 
   },
 });

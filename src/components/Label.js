@@ -27,13 +27,13 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         paddingLeft:'1rem',
         paddingRight:'1rem',
-        paddingTop:'8px',
+        paddingTop:'12px',
         paddingBottom:'4px'
     },
     label:{
         fontStyle:'normal',
         fontWeight:'bold',
-        fontSize:'18px',
+        fontSize:'16px',
         lineHeight:'20px',
         textAlign:'center',
         color:'#ff4444'

@@ -35,14 +35,14 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection:'row',
         paddingTop:'0.5rem',
-        paddingLeft:'8px'
+        paddingLeft:'1rem'
     },
     label:{
         textTransform:'capitalize',
         fontWeight:'bold',
         color: 'rgba(255, 68, 68, 1)',
         fontStyle:'normal',
-        fontSize:'12px',
+        fontSize:'14px',
         lineHeight:'20px',
         textAlign:'center',
         marginRight:'8px'

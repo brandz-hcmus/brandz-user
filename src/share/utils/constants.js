@@ -48,3 +48,22 @@ export const categoryData=[
         srcImg:StaticImages.belt
     },
 ]
+
+export const BUData=[
+    {
+        id:1,
+        srcImg:StaticImages.hugu
+    },
+    {
+        id:2,
+        srcImg:StaticImages.mende
+    },
+    {
+        id:3,
+        srcImg:StaticImages.swe
+    },
+    {
+        id:4,
+        srcImg:StaticImages.davies
+    },
+]
