@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
-import {Entypo} from '@expo/vector-icons'
+import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import HomeHeader from '../components/HomeHeader';
 import Banner from '../components/Banner';
-import CategoryCard from '../components/CategoryCard';
+import CategoryList from '../components/CategoryList';
 
 export function Homepage() {
   return (
@@ -11,7 +10,7 @@ export function Homepage() {
       <HomeHeader />
       <ScrollView>
         <Banner />
-        <CategoryCard />
+        <CategoryList />
       </ScrollView>
     </SafeAreaView>
   );

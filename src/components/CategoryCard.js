@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection:'column',
         alignItems:'center',
+        margin: '8px'
     },
     imgWrapper:{
         width: '100%',
