@@ -11,7 +11,7 @@ const BUList = () => {
             <Label title={'BU NỔI BẬT'}></Label>
             <View style={styles.listWrapper}>
                 {BUData.map((item)=>(
-                    <BUCard srcImg={item.srcImg} />
+                    <BUCard srcImg={item.srcImg} key={item.id} />
                 ))}
             </View>
         </View>
@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
         flexWrap:'wrap',
         width: '100%',
         paddingLeft:'1rem',
-        paddingRight:'1rem'
+        paddingRight:'1rem',
+        
     },
     imgWrapper:{
         width: '144px',

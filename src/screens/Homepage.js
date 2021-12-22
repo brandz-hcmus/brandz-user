@@ -4,6 +4,7 @@ import HomeHeader from '../components/HomeHeader';
 import Banner from '../components/Banner';
 import CategoryList from '../components/CategoryList';
 import BUList from '../components/BUList';
+import Countdown from '../components/Countdown'
 
 export function Homepage() {
   return (
@@ -13,6 +14,7 @@ export function Homepage() {
         <Banner />
         <CategoryList />
         <BUList />
+        <Countdown />
       </ScrollView>
     </SafeAreaView>
   );
