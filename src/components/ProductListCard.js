@@ -44,7 +44,13 @@ const styles = StyleSheet.create({
         width: '11.15rem',
         backgroundColor:'#c4c4c4',
         borderRadius:'8px',
-        margin:'4px'
+        margin:'4px',
+        shadowOffset:{
+            width: 4,
+            height: 4
+        },
+        shadowRadius:5,
+        shadowOpacity:0.2
     },
     imgWrapper:{
         width: '100%',

@@ -18,7 +18,7 @@ const ProductList = () => {
 export default ProductList
 
 const styles = StyleSheet.create({
-    listWrapper:{
+    listWrapper:{ 
         display:'flex',
         flexDirection:'row',
         flexWrap:'wrap',

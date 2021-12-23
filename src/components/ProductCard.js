@@ -31,15 +31,21 @@ export default ProductCard
 
 const styles = StyleSheet.create({
     cardWrapper:{
-        width: '96px',
-        height: '176px',
+        width: '6rem',
+        height: '11rem',
         borderRadius:'8px',
         backgroundColor:'#c4c4c4',
         display: 'flex',
         flexDirection:'column',
         marginBottom:'1.5rem',
         marginHorizontal:'8px',
-        marginTop:'8px'
+        marginTop:'8px',
+        shadowOffset:{
+            width: 4,
+            height: 4
+        },
+        shadowRadius:5,
+        shadowOpacity:0.1
     },
     imgWrapper:{
         width: '100%',

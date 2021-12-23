@@ -4,11 +4,17 @@ import { StyleSheet, Text, View } from 'react-native'
 const Countdown = ({...props}) => {
     return (
         <View style={styles.wrapper} {...props}>
-            <View style={styles.squareBox}>00</View>
+            <View style={styles.squareBox}>
+                <Text>00</Text>
+            </View>
             <Text style={styles.semicolon}>:</Text>
-            <View style={styles.squareBox}>00</View>
+            <View style={styles.squareBox}>
+                <Text>00</Text>
+            </View>
             <Text style={styles.semicolon}>:</Text>
-            <View style={styles.squareBox}>00</View>
+            <View style={styles.squareBox}>
+                <Text>00</Text>
+            </View>
         </View>
     )
 }
