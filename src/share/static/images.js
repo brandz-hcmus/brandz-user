@@ -18,6 +18,9 @@ const StaticImages={
     sweater: require('../../../static/category/sweater.jpg'),
     watches: require('../../../static/category/watches.jpg'),
     belt: require('../../../static/category/belt.jpg'),
+
+    //product
+    product1: require('../../../static/product/product1.jpg')
 }
 
 export default StaticImages;

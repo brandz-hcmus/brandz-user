@@ -4,17 +4,17 @@ import HomeHeader from '../components/HomeHeader';
 import Banner from '../components/Banner';
 import CategoryList from '../components/CategoryList';
 import BUList from '../components/BUList';
-import Countdown from '../components/Countdown'
+import FlashsaleCard from '../components/FlashsaleCard';
 
 export function Homepage() {
   return (
     <SafeAreaView style={styles.container}>
       <HomeHeader />
       <ScrollView>
-        <Banner />
+        {/* <Banner />
         <CategoryList />
-        <BUList />
-        <Countdown />
+        <BUList /> */}
+        <FlashsaleCard />
       </ScrollView>
     </SafeAreaView>
   );
