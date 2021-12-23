@@ -4,13 +4,14 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { Homepage } from '../screens/Homepage';
 import NotificationPage from '../screens/NotificationPage';
 import {FontAwesome} from '@expo/vector-icons'
+import ProductList from './ProductList';
 
 const Tab=createBottomTabNavigator();
 
 const TabScreens = () => {
     return (
         <Tab.Navigator
-            initialRouteName="Home"
+            initialRouteName="Products"
             screenOptions={{
                 tabBarActiveTintColor: '#2f95dc',
               }}
@@ -20,6 +21,16 @@ const TabScreens = () => {
                 component={Homepage}
                 options={{
                     tabBarLabel:'Home',
+                    tabBarIcon:({color})=>{
+                        <FontAwesome name="home" color={color} />
+                    }
+                }}
+            />
+            <Tab.Screen 
+                name="Products"
+                component={ProductList}
+                options={{
+                    tabBarLabel:'Products',
                     tabBarIcon:({color})=>{
                         <FontAwesome name="home" color={color} />
                     }

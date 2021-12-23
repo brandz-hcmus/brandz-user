@@ -5,6 +5,7 @@ import { ScreenName } from '../share/configs/routers';
 import { StatusBar } from 'react-native';
 import TabScreens from './TabScreens';
 import { Homepage } from './Homepage';
+import NotificationPage from './NotificationPage'
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -19,6 +20,16 @@ export default function Navigation() {
           <Stack.Screen
             name={ScreenName.MAIN_SCREEN}
             component={TabScreens}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={ScreenName.HOME_SCREEN}
+            component={Homepage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={ScreenName.NOTIFICATION_SCREEN}
+            component={NotificationPage}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
