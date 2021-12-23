@@ -1,13 +1,19 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { ScreenName } from '../share/configs/routers';
 
 const Label = ({title}) => {
+    const navigation=useNavigation();
+    const _navigateToProductsPage=()=>{
+        navigation.navigate(ScreenName.PRODUCTS_SCREEN)
+    }
     return (
         <>
             <View style={styles.labelWrapper}>
                 <Text style={styles.label}>{title}</Text>
-                <TouchableOpacity style={styles.seeMore}>
+                <TouchableOpacity style={styles.seeMore} onPress={_navigateToProductsPage}>
                     <Text style={styles.seeMoreText}>Xem thêm</Text>
                     <Ionicons name="ios-chevron-forward-outline" size={20} color="black" />
                 </TouchableOpacity>

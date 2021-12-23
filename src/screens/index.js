@@ -6,6 +6,7 @@ import { StatusBar } from 'react-native';
 import TabScreens from './TabScreens';
 import { Homepage } from './Homepage';
 import NotificationPage from './NotificationPage'
+import ProductListPage from './ProductList';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -30,6 +31,11 @@ export default function Navigation() {
           <Stack.Screen
             name={ScreenName.NOTIFICATION_SCREEN}
             component={NotificationPage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={ScreenName.PRODUCTS_SCREEN}
+            component={ProductListPage}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

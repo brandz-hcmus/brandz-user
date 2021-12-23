@@ -11,7 +11,7 @@ const Tab=createBottomTabNavigator();
 const TabScreens = () => {
     return (
         <Tab.Navigator
-            initialRouteName="Products"
+            initialRouteName="Home"
             screenOptions={{
                 tabBarActiveTintColor: '#2f95dc',
               }}
@@ -21,16 +21,6 @@ const TabScreens = () => {
                 component={Homepage}
                 options={{
                     tabBarLabel:'Home',
-                    tabBarIcon:({color})=>{
-                        <FontAwesome name="home" color={color} />
-                    }
-                }}
-            />
-            <Tab.Screen 
-                name="Products"
-                component={ProductListPage}
-                options={{
-                    tabBarLabel:'Products',
                     tabBarIcon:({color})=>{
                         <FontAwesome name="home" color={color} />
                     }

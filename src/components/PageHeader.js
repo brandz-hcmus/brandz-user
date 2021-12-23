@@ -1,12 +1,19 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Entypo,Feather,Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const PageHeader = ({title}) => {
+    const navigation=useNavigation();
+    const _goBack=()=>{
+        navigation.goBack();
+    }
     return (
         <View style={styles.wrapper}>
             <View style={styles.titleWrapper}>
-                <Entypo name="chevron-left" size={24} color="white" />
+                <TouchableOpacity onPress={_goBack}>
+                    <Entypo name="chevron-left" size={24} color="white" />
+                </TouchableOpacity>
                 <Text style={styles.title}>{title}</Text>
             </View>
             <View style={styles.iconWrapper}>
