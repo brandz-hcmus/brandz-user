@@ -41,9 +41,10 @@ const styles = StyleSheet.create({
     cardWrapper:{
         display:'flex',
         flexDirection:'column',
-        width: '11.25rem',
+        width: '11.15rem',
         backgroundColor:'#c4c4c4',
-        borderRadius:'8px'
+        borderRadius:'8px',
+        margin:'4px'
     },
     imgWrapper:{
         width: '100%',

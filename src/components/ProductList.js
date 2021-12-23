@@ -1,19 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, View,FlatList } from 'react-native'
+import { StyleSheet, Text, View,FlatList,ScrollView } from 'react-native'
 import { ProductListData } from '../share/utils/constants';
 import ProductListCard from './ProductListCard';
 
 const ProductList = () => {
-    const renderItem = ({ item }) => (
-        <ProductListCard srcImg={item.srcImg} title={item.title} price={item.price} salePrice={item.salePrice} BULogoSrcImg={item.BULogoSrcImg} BUName={item.BUName} />
-      );
     return (
         <View style={styles.listWrapper}>
-            <FlatList 
-                data={ProductListData}
-                renderItem={renderItem}
-                keyExtractor={item=>item.id}
-            />
+                {
+                    ProductListData.map((item)=>(
+                        <ProductListCard srcImg={item.srcImg} title={item.title} price={item.price} salePrice={item.salePrice} BULogoSrcImg={item.BULogoSrcImg} BUName={item.BUName} key={item.id} />
+                    ))
+                }
         </View>
     )
 }
@@ -25,6 +22,6 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         flexWrap:'wrap',
-        padding:'4px',
+        marginTop:'8px'
     }
 })
