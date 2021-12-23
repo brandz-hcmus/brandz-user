@@ -16,7 +16,7 @@ export function Footer({ selectedItems }) {
   React.useEffect(() => {
     let sum = 0;
     selectedItems.forEach((item) => {
-      sum += item.price;
+      sum += item.price * item.quantity;
     });
 
     setTotalPrice(sum);
@@ -28,7 +28,7 @@ export function Footer({ selectedItems }) {
           <Text style={{ marginRight: 5 }}>Voucher</Text>
           <Voucher />
         </View>
-        <TouchableOpacity style={styles.voucherContainer}>
+        <TouchableOpacity style={styles.voucherItemContainer}>
           <Text style={{ color: colors.blueCyan, marginRight: 5 }}>
             Xem thêm
           </Text>
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: colors.white,
     paddingHorizontal: 15,
-
     paddingVertical: 5,
   },
   voucherContainer: {
@@ -86,8 +85,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     paddingLeft: 15,
     paddingRight: 10,
-    paddingVertical: 5,
-    marginBottom: 2,
+    paddingVertical: 10,
+    borderTopColor: colors.backGround,
+    borderTopWidth: 2,
+    borderBottomColor: colors.backGround,
+    borderBottomWidth: 2,
   },
   voucherItemContainer: {
     display: 'flex',

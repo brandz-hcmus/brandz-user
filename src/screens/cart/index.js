@@ -9,21 +9,8 @@ import { ProductList } from './components/ProductList';
 import { products } from './components/dummy/data';
 export function CartScreen({ navigation }) {
   const [productList, setProductList] = React.useState(products);
-  const [selectedProducts, setSelectedProducts] = React.useState([]);
   const [isCheckedAll, setIsCheckedAll] = React.useState(false);
   let selectedLength = useRef(0);
-
-  React.useEffect(() => {
-    const filtered = productList.filter((item) => item.isSelected === true);
-    setSelectedProducts(filtered);
-    if (filtered.length === productList.length) {
-      selectedLength.current = filtered.length;
-      setIsCheckedAll(true);
-    } else {
-      selectedLength.current = 0;
-      setIsCheckedAll(false);
-    }
-  }, [productList]);
 
   React.useEffect(() => {
     if (isCheckedAll) {
@@ -51,7 +38,9 @@ export function CartScreen({ navigation }) {
   };
 
   const deleteProduct = (id) => {
+    console.log('call delete', id);
     const filtered = productList.filter((item) => item.id !== id);
+
     setProductList(filtered);
   };
 
@@ -69,12 +58,30 @@ export function CartScreen({ navigation }) {
       setIsCheckedAll(true);
     }
   };
+
+  const toggleProducts = React.useMemo(() => {
+    const filtered = productList.filter((item) => item.isSelected === true);
+
+    if (filtered.length === productList.length) {
+      selectedLength.current = filtered.length;
+      setIsCheckedAll(true);
+    } else {
+      selectedLength.current = 0;
+      setIsCheckedAll(false);
+    }
+    return filtered;
+  }, [productList]);
+
   return (
     <View style={{ flex: 1 }}>
       <CartHeader navigation={navigation} />
       <ScrollView style={styles.body}>
         <Address />
-        <AllSelect isChecked={isCheckedAll} onCheckAll={checkAll} />
+        <AllSelect
+          selectNumber={toggleProducts.length}
+          isChecked={isCheckedAll}
+          onCheckAll={checkAll}
+        />
         <ProductList
           deleteItem={deleteProduct}
           changeQuantity={changeQuantity}
@@ -82,7 +89,7 @@ export function CartScreen({ navigation }) {
           onToggle={toggleItem}
         />
       </ScrollView>
-      <Footer selectedItems={selectedProducts} />
+      <Footer selectedItems={toggleProducts} />
     </View>
   );
 }

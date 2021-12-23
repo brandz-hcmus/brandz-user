@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   SafeAreaView,
   Text,
@@ -10,7 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import Modal from 'react-native-modal';
+import { DeleteModal } from './Modal';
 import { colors } from '../../../styles/color';
 
 export function ProductList({
@@ -20,22 +20,29 @@ export function ProductList({
   onToggle,
 }) {
   const [showModal, setShowModal] = React.useState(false);
+  const selectedId = useRef(0);
 
   const onDelete = (id) => {
+    selectedId.current = id;
     setShowModal(true);
+  };
+
+  const onClickModal = (type) => {
+    setShowModal(false);
+    console.log(type, selectedId);
+    if (type === 'delete') {
+      deleteItem(selectedId.current);
+    }
   };
 
   return (
     <>
-      <SafeAreaView>
-        <Modal
-          transparent={true}
-          style={styles.modalBackground}
-          hasBackdrop={true}
-          visible={showModal}
-        >
-          <Button title="Hide modal" onPress={() => setShowModal(false)} />
-        </Modal>
+      <SafeAreaView style={{ marginBottom: 100 }}>
+        <DeleteModal
+          content={'Xóa sản phẩm này khỏi giỏ hàng?'}
+          onClickModal={onClickModal}
+          showModal={showModal}
+        />
         {products.map((product) => (
           <View style={styles.productItem} key={product.id}>
             <View style={styles.leftItem}>
@@ -65,7 +72,7 @@ export function ProductList({
                 ></View>
               </View>
               <Text style={styles.smallText}>Size: {product.size}</Text>
-              <Text style={styles.productPrice}>{product.price}</Text>
+              <Text style={styles.productPrice}>{product.price} d</Text>
               <View style={styles.centerView}>
                 <View style={[styles.centerView, styles.quantityBtn]}>
                   <TouchableOpacity
@@ -109,7 +116,7 @@ const styles = StyleSheet.create({
   },
   productItem: {
     backgroundColor: colors.white,
-    marginTop: 5,
+    marginTop: 2,
     display: 'flex',
     flexDirection: 'row',
     paddingHorizontal: 10,
@@ -175,5 +182,9 @@ const styles = StyleSheet.create({
   modalBackground: {
     margin: 0,
     backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+
+  modal: {
+    backgroundColor: colors.white,
   },
 });

@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import { TouchableHighlight } from 'react-native-gesture-handler';
 import Delete from './icons/carbon_delete.svg';
 import { colors } from '../../../styles/color';
 
-export function AllSelect({ onCheckAll, isChecked }) {
+export function AllSelect({ onCheckAll, isChecked, selectNumber }) {
   return (
     <View style={styles.container}>
       <View style={styles.leftItem}>
@@ -20,11 +19,14 @@ export function AllSelect({ onCheckAll, isChecked }) {
         <Text>Tất cả sản phẩm</Text>
       </View>
 
-      <TouchableHighlight>
+      <TouchableOpacity>
         <View style={styles.deleteBtn}>
+          <Text style={{ color: colors.white, marginRight: 5 }}>
+            Xóa ({selectNumber}) sản phẩm
+          </Text>
           <Delete width={20} height={20}></Delete>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -32,7 +34,7 @@ export function AllSelect({ onCheckAll, isChecked }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
-    marginTop: 5,
+    marginTop: 2,
     padding: 10,
     display: 'flex',
     flexDirection: 'row',
@@ -43,6 +45,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.red,
     borderRadius: 2,
     padding: 8,
+    display: 'flex',
+    flexDirection: 'row',
   },
   leftItem: {
     display: 'flex',
