@@ -5,6 +5,8 @@ import Banner from '../components/Banner';
 import CategoryList from '../components/CategoryList';
 import BUList from '../components/BUList';
 import FlashsaleCard from '../components/FlashsaleCard';
+import Flashsale from '../components/Flashsale';
+import { FlashsaleData } from '../share/utils/constants';
 
 export function Homepage() {
   return (
@@ -14,7 +16,8 @@ export function Homepage() {
         {/* <Banner />
         <CategoryList />
         <BUList /> */}
-        <FlashsaleCard />
+        {/* <Flashsale /> */}
+        <FlashsaleCard srcImg={FlashsaleData[0].srcImg} title={FlashsaleData[0].title} price={FlashsaleData[0].price} salePrice={FlashsaleData[0].salePrice} />
       </ScrollView>
     </SafeAreaView>
   );

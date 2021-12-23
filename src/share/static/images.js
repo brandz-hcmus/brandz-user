@@ -8,6 +8,9 @@ const StaticImages={
     //banner
     banner: require('../../../static/banner.jpg'),
 
+    //flashsale title
+    flashsale_title:require('../../../static/flashsale.png'),
+
 
     //categories
     shirt: require('../../../static/category/shirt.jpg'),
@@ -20,7 +23,24 @@ const StaticImages={
     belt: require('../../../static/category/belt.jpg'),
 
     //product
-    product1: require('../../../static/product/product1.jpg')
+    product1: require('../../../static/product/product1.jpg'),
+    product2: require('../../../static/product/product2.jpg'),
+    product3: require('../../../static/product/product3.jpg'),
+    product4: require('../../../static/product/product4.jpg'),
+    product5: require('../../../static/product/product5.jpg'),
+    product6: require('../../../static/product/product6.jpg'),
+
+    //flashsale
+    flashsale1: require('../../../static/flashsale/flashsale1.jpg'),
+    flashsale2: require('../../../static/flashsale/flashsale2.jpg'),
+    flashsale3: require('../../../static/flashsale/flashsale3.jpg'),
+    flashsale4: require('../../../static/flashsale/flashsale4.jpg'),
+    flashsale5: require('../../../static/flashsale/flashsale5.jpg'),
+    flashsale6: require('../../../static/flashsale/flashsale6.jpg'),
+
+
+    //icon
+    star:require('../../../static/icon/star.png')
 }
 
 export default StaticImages;

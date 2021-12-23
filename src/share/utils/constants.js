@@ -67,3 +67,93 @@ export const BUData=[
         srcImg:StaticImages.davies
     },
 ]
+
+export const FlashsaleData=[
+    {
+        id:1,
+        title:'Áo hoodie xanh dương',
+        srcImg:StaticImages.flashsale1,
+        salePrice:66000,
+        price:174000,
+    },
+    {
+        id:2,
+        title:'Quần jogger đen',
+        srcImg:StaticImages.flashsale2,
+        salePrice:76000,
+        price:150000,
+    },
+    {
+        id:3,
+        title:'Áo sweater đen',
+        srcImg:StaticImages.flashsale3,
+        salePrice:90000,
+        price:200000,
+    },
+    {
+        id:4,
+        title:'Quần jogger trắng',
+        srcImg:StaticImages.flashsale4,
+        salePrice:89000,
+        price:169000,
+    },
+    {
+        id:5,
+        title:'Giày trắng đen cá tính',
+        srcImg:StaticImages.flashsale5,
+        salePrice:76000,
+        price:201000,
+    },
+    {
+        id:6,
+        title:'Đồ bộ nhiều màu',
+        srcImg:StaticImages.flashsale6,
+        salePrice:89000,
+        price:199000,
+    },
+]
+
+export const ProductData=[
+    {
+        id:1,
+        title:'Áo hoodie trắng đen',
+        srcImg:StaticImages.product1,
+        salePrice:66000,
+        price:174000,
+    },
+    {
+        id:2,
+        title:'Quần tây âu',
+        srcImg:StaticImages.product2,
+        salePrice:76000,
+        price:150000,
+    },
+    {
+        id:3,
+        title:'Áo sweater loang màu',
+        srcImg:StaticImages.product3,
+        salePrice:90000,
+        price:200000,
+    },
+    {
+        id:4,
+        title:'Đồng hồ mạ vàng',
+        srcImg:StaticImages.product4,
+        salePrice:89000,
+        price:169000,
+    },
+    {
+        id:5,
+        title:'Đồng hồ ánh kim',
+        srcImg:StaticImages.product5,
+        salePrice:76000,
+        price:201000,
+    },
+    {
+        id:6,
+        title:'Thắt lưng nhiều màu',
+        srcImg:StaticImages.product6,
+        salePrice:89000,
+        price:199000,
+    },
+]

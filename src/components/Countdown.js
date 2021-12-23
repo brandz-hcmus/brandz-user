@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const Countdown = () => {
+const Countdown = ({...props}) => {
     return (
-        <View style={styles.wrapper}>
+        <View style={styles.wrapper} {...props}>
             <View style={styles.squareBox}>00</View>
             <Text style={styles.semicolon}>:</Text>
             <View style={styles.squareBox}>00</View>
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     wrapper:{
         display:'flex',
         flexDirection:'row',
+        marginRight:'8px'
     },
     squareBox:{
         width:'30px',
