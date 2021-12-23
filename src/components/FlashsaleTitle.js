@@ -7,7 +7,10 @@ const FlashsaleTitle = () => {
     return (
         <>
             <View style={styles.wrapper}>
-                <Image style={styles.imgWrapper} source={StaticImages.flashsale_title} ></Image>
+                <View style={styles.flashsaleTitleWrapper}>
+                    <Text style={styles.title}>FLASH SALE</Text>
+                    <Image style={styles.imgWrapper} source={StaticImages.flashsale_title} ></Image>
+                </View>
                 <Countdown />
             </View>
             <View style={styles.divider}></View>
@@ -24,10 +27,23 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'space-between'
     },
+    flashsaleTitleWrapper:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        marginLeft:'16px'
+    },
+    title:{
+        fontStyle:'normal',
+        fontWeight:'bold',
+        fontSize:'18px',
+        textAlign:'center',
+        color:'#ff4444'
+    },
     imgWrapper:{
         height: '64px',
         width: '64px',
-        marginLeft:'8px'
+        marginLeft:'4px'
     },
     divider:{
         width: '90%',

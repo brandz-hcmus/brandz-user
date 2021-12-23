@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#c4c4c4',
         display: 'flex',
         flexDirection:'column',
+        margin:'8px'
     },
     imgWrapper:{
         width: '100%',

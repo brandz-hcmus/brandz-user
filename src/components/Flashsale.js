@@ -1,11 +1,20 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
+import { FlashsaleData } from '../share/utils/constants'
+import FlashsaleCard from './FlashsaleCard'
 import FlashsaleTitle from './FlashsaleTitle'
 
 const Flashsale = () => {
     return (
         <View style={styles.wrapper}>
             <FlashsaleTitle></FlashsaleTitle>
+            <View style={styles.flashsaleListWrapper}>
+                {
+                    FlashsaleData.map((item)=>(
+                        <FlashsaleCard srcImg={item.srcImg} title={item.title} price={item.price} salePrice={item.salePrice} key={item.id} />
+                    ))
+                }
+            </View>
         </View>
     )
 }
@@ -18,5 +27,11 @@ const styles = StyleSheet.create({
         flexDirection:'column',
         backgroundColor:'#fff',
         borderRadius:'8px'
+    },
+    flashsaleListWrapper:{
+        display:'flex',
+        flexDirection:'row',
+        flexWrap:'wrap',
+        padding:'16px',
     }
 })

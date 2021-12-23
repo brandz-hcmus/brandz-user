@@ -16,8 +16,7 @@ export function Homepage() {
         {/* <Banner />
         <CategoryList />
         <BUList /> */}
-        {/* <Flashsale /> */}
-        <FlashsaleCard srcImg={FlashsaleData[0].srcImg} title={FlashsaleData[0].title} price={FlashsaleData[0].price} salePrice={FlashsaleData[0].salePrice} />
+        <Flashsale />
       </ScrollView>
     </SafeAreaView>
   );
