@@ -4,7 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { Homepage } from '../screens/Homepage';
 import NotificationPage from '../screens/NotificationPage';
 import {FontAwesome} from '@expo/vector-icons'
-import ProductList from './ProductList';
+import ProductListPage from './ProductList';
 
 const Tab=createBottomTabNavigator();
 
@@ -28,7 +28,7 @@ const TabScreens = () => {
             />
             <Tab.Screen 
                 name="Products"
-                component={ProductList}
+                component={ProductListPage}
                 options={{
                     tabBarLabel:'Products',
                     tabBarIcon:({color})=>{

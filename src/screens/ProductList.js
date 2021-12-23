@@ -2,19 +2,19 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Filter from '../components/Filter'
 import PageHeader from '../components/PageHeader'
-import ProductListCard from '../components/ProductListCard'
-import { ProductData } from '../share/utils/constants'
+import ProductList from '../components/ProductList'
 
-const ProductList = () => {
+const ProductListPage = () => {
     return (
         <View style={styles.container}>
             <PageHeader title="ĐỀ XUẤT CHO BẠN" />
             <Filter />
+            <ProductList />
         </View>
     )
 }
 
-export default ProductList
+export default ProductListPage
 
 const styles = StyleSheet.create({
     container:{

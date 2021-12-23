@@ -157,3 +157,59 @@ export const ProductData=[
         price:199000,
     },
 ]
+export const ProductListData=[
+    {
+        id:1,
+        title:'Áo hoodie trắng đen',
+        srcImg:StaticImages.product1,
+        salePrice:66000,
+        price:174000,
+        BULogoSrcImg:StaticImages.hugu,
+        BUName:'hugu.official'
+    },
+    {
+        id:2,
+        title:'Quần tây âu',
+        srcImg:StaticImages.product2,
+        salePrice:76000,
+        price:150000,
+        BULogoSrcImg:StaticImages.hugu,
+        BUName:'hugu.official'
+    },
+    {
+        id:3,
+        title:'Áo sweater loang màu',
+        srcImg:StaticImages.product3,
+        salePrice:90000,
+        price:200000,
+        BULogoSrcImg:StaticImages.mende,
+        BUName:'mende.official'
+    },
+    {
+        id:4,
+        title:'Đồng hồ mạ vàng',
+        srcImg:StaticImages.product4,
+        salePrice:89000,
+        price:169000,
+        BULogoSrcImg:StaticImages.swe,
+        BUName:'swe.official'
+    },
+    {
+        id:5,
+        title:'Đồng hồ ánh kim',
+        srcImg:StaticImages.product5,
+        salePrice:76000,
+        price:201000,
+        BULogoSrcImg:StaticImages.swe,
+        BUName:'swe.official'
+    },
+    {
+        id:6,
+        title:'Thắt lưng nhiều màu',
+        srcImg:StaticImages.product6,
+        salePrice:89000,
+        price:199000,
+        BULogoSrcImg:StaticImages.davies,
+        BUName:'davies.official'
+    },
+]
