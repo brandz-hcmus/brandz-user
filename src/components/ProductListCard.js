@@ -1,9 +1,10 @@
 import React from 'react'
-import { StyleSheet, View,Image, TouchableOpacity,Text } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import StaticImages from '../share/static/images'
 import { FormatVND } from '../share/utils/formatter'
+import { Feather,MaterialCommunityIcons  } from '@expo/vector-icons';
 
-const ProductCard = ({srcImg,title,salePrice,price}) => {
+const ProductListCard = ({srcImg,title,price,salePrice,BULogoSrcImg,BUName}) => {
     return (
         <View style={styles.cardWrapper}>
             <Image style={styles.imgWrapper} source={srcImg} />
@@ -19,32 +20,35 @@ const ProductCard = ({srcImg,title,salePrice,price}) => {
                     <Text style={styles.starNum}>4.9</Text>
                     <Text style={styles.evaluateNum}>(100 đánh giá)</Text>
                 </View>
+                <View style={styles.BUInfoWrapper}>
+                    <View style={styles.BUInfo}>
+                        <Image style={styles.BULogo} source={BULogoSrcImg}></Image>
+                        <Text style={styles.BUName}>{BUName}</Text>
+                    </View>
+                    <View style={styles.BUIcon}>
+                        <Feather style={styles.CTAIcon} name="heart" size={20} color="black" />
+                        <MaterialCommunityIcons style={styles.CTAIcon} name="cart-plus" size={20} color="black" />
+                    </View>
+                </View>
             </View>
-            <TouchableOpacity style={styles.addToCardCTA}>
-                <Text style={styles.addToCardText}>Thêm vào giỏ hàng</Text>
-            </TouchableOpacity>
         </View>
     )
 }
 
-export default ProductCard
+export default ProductListCard
 
 const styles = StyleSheet.create({
     cardWrapper:{
-        width: '96px',
-        height: '176px',
-        borderRadius:'8px',
-        backgroundColor:'#c4c4c4',
-        display: 'flex',
+        display:'flex',
         flexDirection:'column',
-        marginBottom:'1.5rem',
-        marginHorizontal:'8px',
-        marginTop:'8px'
+        width: '11.25rem',
+        backgroundColor:'#c4c4c4',
+        borderRadius:'8px'
     },
     imgWrapper:{
         width: '100%',
-        height: '6rem',
-        borderRadius:'8px',
+        height: '190px',
+        borderRadius:'8px'
     },
     infoWrapper:{
         display:'flex',
@@ -52,29 +56,14 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         backgroundColor:'#fff',
         padding: '4px',
+        borderRadius:'8px'
 
-    },
-    addToCardCTA:{
-        height: '1.2rem',
-        width: '100%',
-        borderRadius:'8px',
-        backgroundColor:'#fc1717',
-        marginHorizontal:'auto'
-    },
-    addToCardText:{
-        fontStyle:'normal',
-        fontWeight:'500',
-        fontSize:'10px',
-        lineHeight:'20px',
-        color:'#fff',
-        textAlign:'center',
     },
     productTitle:{
         fontStyle:'normal',
-        fontWeight:'500',
-        fontSize:'12px',
-        color:'000',
-        height: '2rem',
+        fontWeight:'bold',
+        fontSize:'14px',
+        color:'000'
     },
     priceWrapper:{
         display:'flex',
@@ -87,14 +76,14 @@ const styles = StyleSheet.create({
         fontStyle:'normal',
         fontSize:'500',
         fontWeight:'500',
-        fontSize:'10px',
+        fontSize:'12px',
         color:'#ff4444',
         lineHeight:'20px'
     },
     price:{
         fontStyle:'normal',
         fontWeight:'normal',
-        fontSize:'10px',
+        fontSize:'12px',
         color:'#929292',
         textDecorationLine:'line-through'
     },
@@ -113,7 +102,7 @@ const styles = StyleSheet.create({
     starNum:{
         fontStyle:'normal',
         fontWeight:'normal',
-        fontSize:'8px',
+        fontSize:'10px',
         lineHeight:'20px',
         color:'#000',
         marginRight:'2px'
@@ -121,8 +110,42 @@ const styles = StyleSheet.create({
     evaluateNum:{
         fontStyle:'normal',
         fontWeight:'normal',
-        fontSize:'6px',
+        fontSize:'10px',
         lineHeight:'20px',
         color:'#929292'
     },
+    BUInfoWrapper:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        backgroundColor:'#fff',
+        justifyContent:'space-between',
+        marginBottom:'2px',
+    },
+    BUInfo:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    BUIcon:{
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    BULogo:{
+        width: '24px',
+        height: '24px',
+        borderRadius:'50%'
+    },
+    BUName:{
+        fontStyle:'normal',
+        fontWeight:'600',
+        fontSize:'10px',
+        lineHeight:'20px',
+        color: '#000',
+        marginLeft:'4px'
+    },
+    CTAIcon:{
+        marginHorizontal:'4px'
+    }
 })

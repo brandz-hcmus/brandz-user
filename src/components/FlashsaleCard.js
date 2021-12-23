@@ -42,7 +42,9 @@ const styles = StyleSheet.create({
         backgroundColor:'#c4c4c4',
         display: 'flex',
         flexDirection:'column',
-        margin:'8px'
+        marginBottom:'1.5rem',
+        marginHorizontal:'8px',
+        marginTop:'8px'
     },
     imgWrapper:{
         width: '100%',
@@ -89,8 +91,9 @@ const styles = StyleSheet.create({
     productTitle:{
         fontStyle:'normal',
         fontWeight:'500',
-        fontSize:'8px',
-        color:'000'
+        fontSize:'12px',
+        color:'000',
+        height: '2rem',
     },
     priceWrapper:{
         display:'flex',
@@ -102,13 +105,13 @@ const styles = StyleSheet.create({
         fontStyle:'normal',
         fontSize:'500',
         fontWeight:'500',
-        fontSize:'8px',
+        fontSize:'10px',
         color:'#ff4444'
     },
     price:{
         fontStyle:'normal',
         fontWeight:'normal',
-        fontSize:'8px',
+        fontSize:'10px',
         color:'#929292',
         textDecorationLine:'line-through'
     },
@@ -126,7 +129,7 @@ const styles = StyleSheet.create({
     starNum:{
         fontStyle:'normal',
         fontWeight:'normal',
-        fontSize:'6px',
+        fontSize:'8px',
         lineHeight:'20px',
         color:'#000',
         marginRight:'2px'
@@ -134,7 +137,7 @@ const styles = StyleSheet.create({
     evaluateNum:{
         fontStyle:'normal',
         fontWeight:'normal',
-        fontSize:'6px',
+        fontSize:'8px',
         lineHeight:'20px',
         color:'#929292'
     },
