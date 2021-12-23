@@ -1,22 +1,26 @@
 import React from 'react';
-import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView,View } from 'react-native';
 import HomeHeader from '../components/HomeHeader';
 import Banner from '../components/Banner';
 import CategoryList from '../components/CategoryList';
 import BUList from '../components/BUList';
-import FlashsaleCard from '../components/FlashsaleCard';
 import Flashsale from '../components/Flashsale';
-import { FlashsaleData } from '../share/utils/constants';
+import HotDeals from '../components/HotDeals';
+import Suggestions from '../components/Suggestions';
 
 export function Homepage() {
   return (
     <SafeAreaView style={styles.container}>
       <HomeHeader />
       <ScrollView>
-        {/* <Banner />
+        <Banner />
         <CategoryList />
-        <BUList /> */}
-        <Flashsale />
+        <BUList />
+        <View style={styles.productWrapper}>
+          <Flashsale /> 
+          <HotDeals />
+          <Suggestions />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -26,4 +30,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, 
   },
+  productWrapper:{
+    backgroundColor:'#fff',
+    borderRadius:'8px'
+  }
 });

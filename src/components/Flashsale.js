@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'column',
         backgroundColor:'#fff',
-        borderRadius:'8px'
+        borderRadius:'8px',
+        marginBottom:'1rem'
     },
     flashsaleListWrapper:{
         display:'flex',
