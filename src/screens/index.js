@@ -7,6 +7,7 @@ import TabScreens from './TabScreens';
 import { Homepage } from './Homepage';
 import NotificationPage from './NotificationPage'
 import ProductListPage from './ProductList';
+import ProductDetail from './ProductDetailPage';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -36,6 +37,11 @@ export default function Navigation() {
           <Stack.Screen
             name={ScreenName.PRODUCTS_SCREEN}
             component={ProductListPage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name={ScreenName.PRODUCT_DETAIL_SCREEN}
+            component={ProductDetail}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

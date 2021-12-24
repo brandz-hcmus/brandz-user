@@ -5,15 +5,15 @@ const Countdown = ({...props}) => {
     return (
         <View style={styles.wrapper} {...props}>
             <View style={styles.squareBox}>
-                <Text>00</Text>
+                <Text style={styles.time}>00</Text>
             </View>
             <Text style={styles.semicolon}>:</Text>
             <View style={styles.squareBox}>
-                <Text>00</Text>
+                <Text style={styles.time}>00</Text>
             </View>
             <Text style={styles.semicolon}>:</Text>
             <View style={styles.squareBox}>
-                <Text>00</Text>
+                <Text style={styles.time}>00</Text>
             </View>
         </View>
     )
@@ -32,6 +32,9 @@ const styles = StyleSheet.create({
         height:'26px',
         borderRadius:'4px',
         backgroundColor:'#b31310',
+        
+    },
+    time:{
         fontStyle:'normal',
         fontWeight:'bold',
         textAlign:'center',
