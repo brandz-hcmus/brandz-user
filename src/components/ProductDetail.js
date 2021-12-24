@@ -6,13 +6,17 @@ import Label from './Label'
 import { ProductData } from '../share/utils/constants'
 import ProductCard from './ProductCard'
 import BUInfo from './BUInfo'
+import ProductDetailInfoLayout from './ProductDetailInfoLayout'
+import ProductDetailDescription from './ProductDetailDescription'
+import ProductDetailInfo from './ProductDetailInfo'
+import CartCTA from './CartCTA'
 
 
 const ProductDetail = () => {
     return (
         <View style={styles.wrapper}>
             <ScrollView>
-            <Image source={StaticImages.product1} style={styles.imgWrapper} />
+            {/* <Image source={StaticImages.product1} style={styles.imgWrapper} />
             <View style={styles.infoWrapper}>
                 <Text style={styles.productTitle}>Áo hoodie ấm áp</Text>
                 <View style={styles.priceWrapper}>
@@ -34,8 +38,19 @@ const ProductDetail = () => {
                     ))}
                 </View>
             </View>
-            <BUInfo />
+            <BUInfo /> */}
+            {/* <ProductDetailInfo title="Thông tin chi tiết" /> */}
+            {/* <ProductDetailDescription title="Mô tả sản phẩm"/> */}
+            <View style={styles.relatedProducts}>
+                <Label title={'Khám phá thêm'} />
+                <View style={styles.listWrapper}>
+                    {ProductData.slice(3,6).map((item)=>(
+                        <ProductCard srcImg={item.srcImg} title={item.title} price={item.price} salePrice={item.salePrice} key={item.id}  />
+                    ))}
+                </View>
+            </View>
             </ScrollView>
+            <CartCTA />
         </View>
     )
 }
