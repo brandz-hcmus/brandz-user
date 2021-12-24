@@ -47,7 +47,10 @@ const styles = StyleSheet.create({
     },
     divider:{
         width: '90%',
-        border:'0.5px solid #000',
+        // border:'0.5px solid #000',
+        borderWidth:'0.5px',
+        borderStyle:'solid',
+        borderColor:'#000',
         marginHorizontal:'auto'
     },
    

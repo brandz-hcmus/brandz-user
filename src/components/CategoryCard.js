@@ -16,13 +16,16 @@ const styles = StyleSheet.create({
     cardWrapper:{
         width: '4.25rem',
         height: '4.25rem',
-        border:'0.5px solid #000',
         borderRadius:'8px',
         backgroundColor:'#fff',
         display: 'flex',
         flexDirection:'column',
         alignItems:'center',
-        margin: '8px'
+        margin: '8px',
+        // border:'0.5px solid #000',
+        borderWidth:'0.5px',
+        borderStyle:'solid',
+        borderColor:'#000',
     },
     imgWrapper:{
         width: '100%',

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     searchWrapper:{
         width: '18.175rem',
         height: '1.75rem',
-        borderRadius:'8px',
+        borderRadius:8,
         backgroundColor:'#fff',
     },
     searchIcon:{
