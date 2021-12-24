@@ -3,13 +3,13 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import StaticImages from '../share/static/images'
 import { AntDesign } from '@expo/vector-icons';
 
-const BUInfo = () => {
+const BUInfo = ({BULogoSrcImg,BUName}) => {
     return (
         <View style={styles.wrapper}>
             <View style={styles.BUInfoWrapper}>
-                <Image style={styles.logoWrapper} source={StaticImages.hugu} />
+                <Image style={styles.logoWrapper} source={BULogoSrcImg} />
                 <View style={styles.infoWrapper}>
-                    <Text style={styles.BUName}>hugu.official</Text>
+                    <Text style={styles.BUName}>{BUName}</Text>
                     <Text style={styles.BUStatistic}>678k theo dõi | 123 sản phẩm</Text>
                 </View>
             </View>

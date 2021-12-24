@@ -3,10 +3,9 @@ import { StyleSheet, Text, View,Image, ScrollView } from 'react-native'
 import StaticImages from '../share/static/images'
 import { FormatVND } from '../share/utils/formatter'
 import Label from './Label'
-import { ProductData } from '../share/utils/constants'
+import { ProductData, ProductDetailDataSample } from '../share/utils/constants'
 import ProductCard from './ProductCard'
 import BUInfo from './BUInfo'
-import ProductDetailInfoLayout from './ProductDetailInfoLayout'
 import ProductDetailDescription from './ProductDetailDescription'
 import ProductDetailInfo from './ProductDetailInfo'
 import CartCTA from './CartCTA'
@@ -16,12 +15,12 @@ const ProductDetail = () => {
     return (
         <View style={styles.wrapper}>
             <ScrollView>
-            {/* <Image source={StaticImages.product1} style={styles.imgWrapper} />
+            <Image source={ProductDetailDataSample[0].srcImg} style={styles.imgWrapper} />
             <View style={styles.infoWrapper}>
-                <Text style={styles.productTitle}>Áo hoodie ấm áp</Text>
+                <Text style={styles.productTitle}>{ProductDetailDataSample[0].title}</Text>
                 <View style={styles.priceWrapper}>
-                    <Text style={styles.salePrice}>{FormatVND(69000)}</Text>
-                    <Text style={styles.price}>{FormatVND(174000)}</Text>
+                    <Text style={styles.salePrice}>{FormatVND(ProductDetailDataSample[0].salePrice)}</Text>
+                    <Text style={styles.price}>{FormatVND(ProductDetailDataSample[0].price)}</Text>
                     <View></View>
                 </View>
                 <View style={styles.evaluateWrapper}>
@@ -38,10 +37,10 @@ const ProductDetail = () => {
                     ))}
                 </View>
             </View>
-            <BUInfo /> */}
-            {/* <ProductDetailInfo title="Thông tin chi tiết" /> */}
-            {/* <ProductDetailDescription title="Mô tả sản phẩm"/> */}
-            <View style={styles.relatedProducts}>
+            <BUInfo BULogoSrcImg={ProductDetailDataSample[0].BULogoSrcImg} BUName={ProductDetailDataSample[0].BUName}/>
+            <ProductDetailInfo title="Thông tin chi tiết" detail={ProductDetailDataSample[0].detail}/>
+            <ProductDetailDescription title="Mô tả sản phẩm"/>
+            <View style={[styles.relatedProducts,styles.endZone]}>
                 <Label title={'Khám phá thêm'} />
                 <View style={styles.listWrapper}>
                     {ProductData.slice(3,6).map((item)=>(
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
     imgWrapper:{
         width: '100%',
         height: '496px',
-        marginVertical:'8px'
+        marginBottom:'1rem'
     },
     infoWrapper:{
         display:'flex',
@@ -155,5 +154,8 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         flexWrap:'wrap',
         padding:'16px',
+    },
+    endZone:{
+        marginBottom:'5rem'
     }
 })

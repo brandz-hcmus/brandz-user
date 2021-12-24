@@ -4,6 +4,7 @@ import { DataTable } from 'react-native-paper';
 import ProductDetailInfoLayout from './ProductDetailInfoLayout';
 
 const ProductDetailInfo = ProductDetailInfoLayout(({ detail }) => {
+    console.log(detail)
   return (
     <View style={styles.wrapper}>
       <DataTable>
@@ -13,12 +14,12 @@ const ProductDetailInfo = ProductDetailInfoLayout(({ detail }) => {
         </DataTable.Header>
         {detail.map((item, index) => {
           return index % 2 == 0 ? (
-            <DataTable.Row>
+            <DataTable.Row key={index}>
               <DataTable.Cell>{item.title}</DataTable.Cell>
               <DataTable.Cell>{item.content}</DataTable.Cell>
             </DataTable.Row>
           ) : (
-            <DataTable.Row style={styles.oddRow}>
+            <DataTable.Row style={styles.oddRow} key={index}>
               <DataTable.Cell>{item.title}</DataTable.Cell>
               <DataTable.Cell>{item.content}</DataTable.Cell>
             </DataTable.Row>

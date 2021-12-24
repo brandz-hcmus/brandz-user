@@ -213,3 +213,23 @@ export const ProductListData=[
         BUName:'davies.official'
     },
 ]
+export const ProductDetailDataSample=[
+    {
+        id:1,
+        title:'Áo hoodie trắng đen',
+        srcImg:StaticImages.product1,
+        salePrice:66000,
+        price:174000,
+        BULogoSrcImg:StaticImages.hugu,
+        BUName:'hugu.official',
+        detail:[
+            {title:'Tên sản phẩm',content:'Áo hoodie trắng đen'},
+            {title:'Kích cỡ',content:'XL'},
+            {title:'Giá',content:66000},
+            {title:'Nhà sản xuất',content:'hugu.official'},
+            {title:'Hạn sử dụng',content:'31/12/2029'},
+            {title:'Chính sách đổi trả',content:'Áp dụng'},
+        ]
+    },
+    
+]
