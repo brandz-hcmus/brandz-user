@@ -72,15 +72,31 @@ export function CartScreen({ navigation }) {
     return filtered;
   }, [productList]);
 
+  const onDeleteMany = () => {
+    if (toggleProducts.length) {
+      const temp = [];
+
+      toggleProducts.forEach((product) => {
+        products.forEach((item) => {
+          if (item.id !== product.id) {
+            temp.push(item);
+          }
+        });
+      });
+      setProductList(temp);
+    }
+  };
+
   return (
     <View style={{ flex: 1 }}>
-      <CartHeader navigation={navigation} />
+      <CartHeader navigation={navigation} content={'GIO HANG'} />
       <ScrollView style={styles.body}>
         <Address />
         <AllSelect
           selectNumber={toggleProducts.length}
           isChecked={isCheckedAll}
           onCheckAll={checkAll}
+          onDeleteMany={onDeleteMany}
         />
         <ProductList
           deleteItem={deleteProduct}
@@ -89,7 +105,7 @@ export function CartScreen({ navigation }) {
           onToggle={toggleItem}
         />
       </ScrollView>
-      <Footer selectedItems={toggleProducts} />
+      <Footer navigation={navigation} selectedItems={toggleProducts} />
     </View>
   );
 }

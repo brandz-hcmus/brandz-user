@@ -6,6 +6,9 @@ import { ScreenName, ScreenTitle } from '../share/configs/routers';
 import { Homepage } from './home';
 import { CartScreen } from './cart';
 import { colors } from '../styles/color';
+import { PayMent } from './payment';
+import { PaymentMethod } from './payment-method';
+import { Order } from './order';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +26,12 @@ export default function Navigation() {
         >
           <Stack.Screen name={ScreenName.HOME_SCREEN} component={Homepage} />
           <Stack.Screen name={ScreenName.CART_SCREEN} component={CartScreen} />
+          <Stack.Screen name={ScreenName.PAYMENT_SCREEN} component={PayMent} />
+          <Stack.Screen
+            name={ScreenName.PAYMENT_METHOD_SCREEN}
+            component={PaymentMethod}
+          />
+          <Stack.Screen name={ScreenName.ORDER_SCREEN} component={Order} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

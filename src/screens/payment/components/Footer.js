@@ -6,14 +6,19 @@ import {
   TouchableHighlight,
   CheckBox,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import Spinner from 'react-native-loading-spinner-overlay';
 import { colors } from '../../../styles/color';
-import Voucher from './icons/voucher.svg';
-import Narrow from './icons/narrow.svg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScreenName } from '../../../share/configs/routers';
+import { delay } from '../../../share/utils/async';
 
-export function Footer({ selectedItems, navigation }) {
+export function Footer({ selectedItems }) {
   const [totalPrice, setTotalPrice] = React.useState(0);
+
+  const [loading, setLoading] = React.useState(false);
+
+  const navigation = useNavigation();
   React.useEffect(() => {
     let sum = 0;
     selectedItems.forEach((item) => {
@@ -23,38 +28,25 @@ export function Footer({ selectedItems, navigation }) {
     setTotalPrice(sum);
   }, [selectedItems]);
 
-  const gotoPayment = () => {
-    navigation.navigate(ScreenName.PAYMENT_SCREEN, { items: selectedItems });
+  const goToOrder = async () => {
+    setLoading(true);
+    await delay();
+    setLoading(false);
+    navigation.navigate(ScreenName.ORDER_SCREEN);
   };
+
   return (
     <View style={styles.footer}>
-      <View style={styles.voucherContainer}>
-        <View style={styles.voucherItemContainer}>
-          <Text style={{ marginRight: 5 }}>Voucher</Text>
-          <Voucher />
-        </View>
-        <TouchableOpacity style={styles.voucherItemContainer}>
-          <Text style={{ color: colors.blueCyan, marginRight: 5 }}>
-            Xem thêm
-          </Text>
-          <View style={styles.voucherItemContainer}>
-            <Narrow />
-            <Narrow />
-          </View>
-        </TouchableOpacity>
-      </View>
+      <Spinner visible={loading} />
       <View style={styles.buttonContainer}>
         <View>
           <Text>Tổng cộng</Text>
           <Text style={{ color: colors.red }}>{totalPrice} d</Text>
         </View>
 
-        <TouchableHighlight
-          disabled={selectedItems.length === 0}
-          onPress={gotoPayment}
-        >
+        <TouchableHighlight onPress={goToOrder}>
           <View style={styles.button}>
-            <Text style={styles.btnText}>MUA NGAY</Text>
+            <Text style={styles.btnText}>DAT HANG</Text>
           </View>
         </TouchableHighlight>
       </View>

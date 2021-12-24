@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
   productItem: {
     backgroundColor: colors.white,
-    marginTop: 2,
+    marginTop: 5,
     display: 'flex',
     flexDirection: 'row',
     paddingHorizontal: 10,
