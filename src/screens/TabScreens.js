@@ -30,7 +30,7 @@ const TabScreens = () => {
             />
             <Tab.Screen 
                 name="ProductDetail"
-                component={ProductEvaluate}
+                component={ProductDetailPage}
                 options={{
                     tabBarLabel:'Product Detail',
                     tabBarIcon:({color})=>{
