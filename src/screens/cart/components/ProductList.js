@@ -29,7 +29,7 @@ export function ProductList({
 
   const onClickModal = (type) => {
     setShowModal(false);
-    console.log(type, selectedId);
+
     if (type === 'delete') {
       deleteItem(selectedId.current);
     }

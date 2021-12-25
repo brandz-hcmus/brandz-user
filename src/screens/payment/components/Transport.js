@@ -8,7 +8,7 @@ export function Transport() {
     <TouchableOpacity style={styles.container}>
       <View style={styles.headerContainer}>
         <View style={styles.voucherItemContainer}>
-          <Text style={styles.header}>Phuong thuc van chuyen</Text>
+          <Text style={styles.header}>Phương thức vân chuyển</Text>
           <Truck width={13} height={15}></Truck>
         </View>
 
@@ -23,9 +23,9 @@ export function Transport() {
         <Text style={styles.smallText}>Ship COD</Text>
         <Text style={styles.smallText}>Viettel Post</Text>
         <Text style={styles.smallText}>
-          Phi:{' '}
+          Phí:{' '}
           <Text style={[styles.smallText, { color: colors.blueCyan }]}>
-            16.000 d
+            16.000 dí
           </Text>
         </Text>
       </View>

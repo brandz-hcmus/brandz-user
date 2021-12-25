@@ -1,20 +1,32 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { colors } from '../../../styles/color';
 import Payment from './icons/payment.svg';
 import Narrow from './icons/narrow.svg';
 import { ScreenName } from '../../../share/configs/routers';
 export function PaymentDetail() {
   const navigation = useNavigation();
+  const route = useRoute();
+  const [paymentID, setPaymentID] = React.useState(0);
+
+  React.useEffect(() => {
+    if (route.params.paymentID !== undefined) {
+      setPaymentID(route.params.paymentID);
+    }
+  }, [route.params]);
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(ScreenName.PAYMENT_METHOD_SCREEN)}
+      onPress={() =>
+        navigation.navigate(ScreenName.PAYMENT_METHOD_SCREEN, {
+          id: paymentID,
+        })
+      }
       style={styles.container}
     >
       <View style={styles.headerContainer}>
         <View style={styles.voucherItemContainer}>
-          <Text style={styles.header}>Phuong thuc thanh toan</Text>
+          <Text style={styles.header}>Phương thức thanh toán</Text>
           <Payment width={13} height={15}></Payment>
         </View>
 
@@ -26,24 +38,17 @@ export function PaymentDetail() {
         </TouchableOpacity>
       </View>
       <View>
-        <Text style={styles.smallText}>
-          Tien hang:{' '}
-          <Text style={[styles.smallText, { color: colors.blueCyan }]}>
-            16.000 d
-          </Text>
-        </Text>
-        <Text style={styles.smallText}>
-          Phi van chuyen:{' '}
-          <Text style={[styles.smallText, { color: colors.blueCyan }]}>
-            16.000 d
-          </Text>
-        </Text>
-        <Text style={styles.smallText}>
-          Tong thanh toan:{' '}
-          <Text style={[styles.smallText, { color: colors.blueCyan }]}>
-            16.000 d
-          </Text>
-        </Text>
+        {paymentID === 2 ? (
+          <Text style={styles.smallText}>Thanh toán khi nhận hàng</Text>
+        ) : (
+          <>
+            {paymentID === 0 ? (
+              <Text style={styles.smallText}>Ví điển tử BrandZ</Text>
+            ) : (
+              <Text style={styles.smallText}>Credit/Debit Card</Text>
+            )}
+          </>
+        )}
       </View>
     </TouchableOpacity>
   );

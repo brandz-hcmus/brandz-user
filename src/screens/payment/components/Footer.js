@@ -40,13 +40,13 @@ export function Footer({ selectedItems }) {
       <Spinner visible={loading} />
       <View style={styles.buttonContainer}>
         <View>
-          <Text>Tổng cộng</Text>
-          <Text style={{ color: colors.red }}>{totalPrice} d</Text>
+          <Text>Tổng tiền phải trả</Text>
+          <Text style={{ color: colors.red }}>{totalPrice} đ</Text>
         </View>
 
         <TouchableHighlight onPress={goToOrder}>
           <View style={styles.button}>
-            <Text style={styles.btnText}>DAT HANG</Text>
+            <Text style={styles.btnText}>ĐẶT HÀNG</Text>
           </View>
         </TouchableHighlight>
       </View>
