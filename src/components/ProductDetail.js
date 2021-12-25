@@ -27,7 +27,7 @@ const ProductDetail = () => {
                     <Image style={styles.starIcon} source={StaticImages.star}></Image>
                     <Text style={styles.starNum}>4.9</Text>
                     <Text style={styles.evaluateNum}>(100 đánh giá)</Text>
-                </View>
+                </View> 
             </View>
             <View style={styles.relatedProducts}>
                 <Label title={'Sản phẩm tương tự'} />

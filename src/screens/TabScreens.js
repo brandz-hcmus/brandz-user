@@ -6,6 +6,7 @@ import NotificationPage from '../screens/NotificationPage';
 import {FontAwesome} from '@expo/vector-icons'
 import ProductListPage from './ProductList';
 import ProductDetailPage from './ProductDetailPage';
+import ProductEvaluate from '../components/ProductEvaluate'
 
 const Tab=createBottomTabNavigator();
 
@@ -29,7 +30,7 @@ const TabScreens = () => {
             />
             <Tab.Screen 
                 name="ProductDetail"
-                component={ProductDetailPage}
+                component={ProductEvaluate}
                 options={{
                     tabBarLabel:'Product Detail',
                     tabBarIcon:({color})=>{
