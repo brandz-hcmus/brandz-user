@@ -3,24 +3,24 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
   TouchableWithoutFeedback,
+  TouchableHighlight,
 } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { CartHeader } from '../../header/cart';
-import Wallet from './icons/Wallet.svg';
-import Cash from './icons/Cash.svg';
-import Visa from './icons/Visa.svg';
+import JAndT from './icons/JT.svg';
+import GHTK from './icons/GHTK.svg';
+import Grab from './icons/grab.svg';
 import { colors } from '../../styles/color';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { ScreenName } from '../../share/configs/routers';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import Spinner from 'react-native-loading-spinner-overlay';
 import { delayTime } from '../../share/utils/async';
+import Spinner from 'react-native-loading-spinner-overlay';
 
-export function PaymentMethod() {
+export function TransportMethod() {
   const [selectedID, setSelectedID] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
+
   const navigation = useNavigation();
   const route = useRoute();
   React.useEffect(() => {
@@ -40,7 +40,7 @@ export function PaymentMethod() {
       <Spinner visible={loading} />
       <CartHeader
         navigation={navigation}
-        content={'PHƯƠNG THỨC THANH TOÁN'}
+        content={'PHƯƠNG THỨC VAN CHUYEN'}
       ></CartHeader>
       <View style={styles.suggestContainer}>
         <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 10 }}>
@@ -53,10 +53,10 @@ export function PaymentMethod() {
               selectedID === 0 && styles.selectedItem,
             ]}
           >
-            <Wallet width={50} height={50} />
+            <Grab width={50} height={50} />
             <View style={{ flex: 1, marginLeft: 15 }}>
-              <Text style={{ fontWeight: 'bold' }}>BrandZ Wallet</Text>
-              <Text>Ví điện tử Brandz</Text>
+              <Text style={{ fontWeight: 'bold' }}>Grab express</Text>
+              <Text>Phí: 16.000 đ</Text>
             </View>
             <BouncyCheckbox
               size={20}
@@ -79,10 +79,10 @@ export function PaymentMethod() {
               selectedID === 1 && styles.selectedItem,
             ]}
           >
-            <Visa width={50} height={50} />
+            <JAndT width={50} height={50} />
             <View style={{ flex: 1, marginLeft: 15 }}>
-              <Text style={{ fontWeight: 'bold' }}>Credit/Debit</Text>
-              <Text>355364575858</Text>
+              <Text style={{ fontWeight: 'bold' }}>J&T express</Text>
+              <Text>Phí: 20.000 đ</Text>
             </View>
             <BouncyCheckbox
               size={20}
@@ -100,11 +100,10 @@ export function PaymentMethod() {
               selectedID === 2 && styles.selectedItem,
             ]}
           >
-            <Cash width={50} height={50} />
-            <View style={{ flexDirection: 'row', flex: 1 }}>
-              <Text style={{ marginLeft: 15, fontWeight: 'bold' }}>
-                Thanh toán khi nhận hàng
-              </Text>
+            <GHTK width={50} height={50} />
+            <View style={{ flex: 1, marginLeft: 15 }}>
+              <Text style={{ fontWeight: 'bold' }}>Giao hang tiet kiem</Text>
+              <Text>Phi: 30.000 đ</Text>
             </View>
             <BouncyCheckbox
               size={20}
@@ -121,7 +120,7 @@ export function PaymentMethod() {
           onPress={() =>
             navigation.navigate({
               name: ScreenName.PAYMENT_SCREEN,
-              params: { paymentID: selectedID },
+              params: { transportID: selectedID },
               merge: true,
             })
           }

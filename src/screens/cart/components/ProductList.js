@@ -12,6 +12,7 @@ import {
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { DeleteModal } from './Modal';
 import { colors } from '../../../styles/color';
+import { NumberToVND } from '../../../share/utils/formatter';
 
 export function ProductList({
   products,
@@ -72,7 +73,9 @@ export function ProductList({
                 ></View>
               </View>
               <Text style={styles.smallText}>Size: {product.size}</Text>
-              <Text style={styles.productPrice}>{product.price} d</Text>
+              <Text style={styles.productPrice}>
+                {NumberToVND(product.price)}
+              </Text>
               <View style={styles.centerView}>
                 <View style={[styles.centerView, styles.quantityBtn]}>
                   <TouchableOpacity
@@ -113,6 +116,11 @@ const styles = StyleSheet.create({
   productImage: {
     width: 120,
     height: 150,
+  },
+  productName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingRight: 10,
   },
   productItem: {
     backgroundColor: colors.white,

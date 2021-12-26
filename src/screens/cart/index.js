@@ -38,7 +38,6 @@ export function CartScreen({ navigation }) {
   };
 
   const deleteProduct = (id) => {
-    console.log('call delete', id);
     const filtered = productList.filter((item) => item.id !== id);
 
     setProductList(filtered);

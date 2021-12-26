@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { colors } from '../../../styles/color';
 import Payment from './icons/payment.svg';
-import Narrow from './icons/narrow.svg';
+import Narrow from './icons/narrow-left.svg';
 import { ScreenName } from '../../../share/configs/routers';
 export function PaymentDetail() {
   const navigation = useNavigation();
@@ -32,8 +32,7 @@ export function PaymentDetail() {
 
         <TouchableOpacity style={styles.paymentContainer}>
           <View style={styles.voucherItemContainer}>
-            <Narrow />
-            <Narrow />
+            <Narrow width={13} height={13} />
           </View>
         </TouchableOpacity>
       </View>

@@ -1,7 +1,11 @@
-export async function delay() {
+export async function delayTime(timeout) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(1);
-    }, 1000);
+    try {
+      setTimeout(() => {
+        resolve(1);
+      }, timeout);
+    } catch (error) {
+      reject(1);
+    }
   });
 }

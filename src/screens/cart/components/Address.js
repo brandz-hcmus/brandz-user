@@ -2,12 +2,19 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { colors } from '../../../styles/color';
 import Location from './icons/location.svg';
+import Narrow from './icons/narrow-left.svg';
 export function Address() {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.header}>Địa chỉ giao hàng</Text>
-        <Location width={13} height={15}></Location>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text style={styles.header}>Địa chỉ giao hàng</Text>
+          <Location width={13} height={15}></Location>
+        </View>
+
+        <View style={styles.voucherItemContainer}>
+          <Narrow width={13} height={13} />
+        </View>
       </View>
 
       <Text>
@@ -30,6 +37,12 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   headerContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  voucherItemContainer: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',

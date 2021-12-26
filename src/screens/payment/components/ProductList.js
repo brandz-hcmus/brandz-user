@@ -9,7 +9,7 @@ import {
   Button,
   Alert,
 } from 'react-native';
-import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import { NumberToVND } from '../../../share/utils/formatter';
 import { colors } from '../../../styles/color';
 
 export function ProductList({ products }) {
@@ -33,8 +33,10 @@ export function ProductList({ products }) {
               ></View>
             </View>
             <Text style={styles.smallText}>Size: {product.size}</Text>
-            <Text style={styles.productPrice}>{product.price} d</Text>
-            <Text style={styles.smallText}>So luong: {product.quantity}</Text>
+            <Text style={styles.productPrice}>
+              {NumberToVND(product.price)}
+            </Text>
+            <Text style={styles.smallText}>Số lượng: {product.quantity}</Text>
             <View style={styles.centerView}></View>
           </View>
         </View>
@@ -47,6 +49,11 @@ const styles = StyleSheet.create({
   productImage: {
     width: 120,
     height: 150,
+  },
+  productName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingRight: 10,
   },
   productItem: {
     backgroundColor: colors.white,

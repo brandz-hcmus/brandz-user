@@ -11,28 +11,22 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import { colors } from '../../../styles/color';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScreenName } from '../../../share/configs/routers';
-import { delay } from '../../../share/utils/async';
+import { delayTime } from '../../../share/utils/async';
+import { NumberToVND } from '../../../share/utils/formatter';
 
-export function Footer({ selectedItems }) {
-  const [totalPrice, setTotalPrice] = React.useState(0);
-
+export function Footer({ price, selectedItems }) {
   const [loading, setLoading] = React.useState(false);
 
   const navigation = useNavigation();
-  React.useEffect(() => {
-    let sum = 0;
-    selectedItems.forEach((item) => {
-      sum += item.price * item.quantity;
-    });
-
-    setTotalPrice(sum);
-  }, [selectedItems]);
 
   const goToOrder = async () => {
     setLoading(true);
-    await delay();
+    await delayTime(1000);
     setLoading(false);
-    navigation.navigate(ScreenName.ORDER_SCREEN);
+    navigation.navigate(ScreenName.ORDER_SCREEN, {
+      products: selectedItems,
+      totalPrice: price,
+    });
   };
 
   return (
@@ -41,7 +35,7 @@ export function Footer({ selectedItems }) {
       <View style={styles.buttonContainer}>
         <View>
           <Text>Tổng tiền phải trả</Text>
-          <Text style={{ color: colors.red }}>{totalPrice} đ</Text>
+          <Text style={{ color: colors.red }}>{NumberToVND(price)}</Text>
         </View>
 
         <TouchableHighlight onPress={goToOrder}>

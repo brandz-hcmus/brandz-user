@@ -9,13 +9,15 @@ import { colors } from '../styles/color';
 import { PayMent } from './payment';
 import { PaymentMethod } from './payment-method';
 import { Order } from './order';
+import { CartHeader } from '../header/cart';
+import { TransportMethod } from './tranport-method';
 
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
   return (
     <>
-      <StatusBar backgroundColor={colors.black} />
+      <StatusBar backgroundColor={'transparent'} translucent />
 
       <NavigationContainer>
         <Stack.Navigator
@@ -32,6 +34,10 @@ export default function Navigation() {
             component={PaymentMethod}
           />
           <Stack.Screen name={ScreenName.ORDER_SCREEN} component={Order} />
+          <Stack.Screen
+            name={ScreenName.TRANSPORT_METHOD_SCREEN}
+            component={TransportMethod}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>

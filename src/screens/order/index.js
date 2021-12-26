@@ -1,18 +1,21 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, useWindowDimensions, ScrollView } from 'react-native';
+
 import { CartHeader } from '../../header/cart';
-import { History } from './components/History';
-import { OrderCategory } from './components/OrderCategory';
+import { colors } from '../../styles/color';
+import { Filter } from './components/Filter';
+import { ProductList } from './components/ProductList';
 
 export function Order() {
-  const navigation = useNavigation();
-
   return (
-    <View>
-      <CartHeader content={'DON HANG CUA BAN'} />
-      <OrderCategory />
-      <History />
+    <View style={{ flex: 1 }}>
+      <CartHeader content={'ĐƠN HÀNG CỦA BẠN'} />
+      <Filter />
+
+      <ScrollView>
+        <ProductList />
+      </ScrollView>
     </View>
   );
 }

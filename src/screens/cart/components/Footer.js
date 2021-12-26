@@ -11,6 +11,7 @@ import Voucher from './icons/voucher.svg';
 import Narrow from './icons/narrow.svg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScreenName } from '../../../share/configs/routers';
+import { NumberToVND } from '../../../share/utils/formatter';
 
 export function Footer({ selectedItems, navigation }) {
   const [totalPrice, setTotalPrice] = React.useState(0);
@@ -35,10 +36,9 @@ export function Footer({ selectedItems, navigation }) {
         </View>
         <TouchableOpacity style={styles.voucherItemContainer}>
           <Text style={{ color: colors.blueCyan, marginRight: 5 }}>
-            Xem thêm
+            Chon voucher
           </Text>
           <View style={styles.voucherItemContainer}>
-            <Narrow />
             <Narrow />
           </View>
         </TouchableOpacity>
@@ -46,7 +46,7 @@ export function Footer({ selectedItems, navigation }) {
       <View style={styles.buttonContainer}>
         <View>
           <Text>Tổng cộng</Text>
-          <Text style={{ color: colors.red }}>{totalPrice} d</Text>
+          <Text style={{ color: colors.red }}>{NumberToVND(totalPrice)}</Text>
         </View>
 
         <TouchableHighlight

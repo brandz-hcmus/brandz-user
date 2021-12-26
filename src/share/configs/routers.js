@@ -6,6 +6,7 @@ export const ScreenName = {
   MAIN_SCREEN: 'Main',
   HOME_SCREEN: 'Home',
   NOTIFICATION_SCREEN: 'Notification',
+  TRANSPORT_METHOD_SCREEN: 'TransportMethod',
   PRODUCTS_SCREEN: 'Products',
 };
 
