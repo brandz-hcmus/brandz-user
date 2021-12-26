@@ -76,12 +76,14 @@ export function CartScreen({ navigation }) {
       const temp = [];
 
       toggleProducts.forEach((product) => {
-        products.forEach((item) => {
+        productList.forEach((item) => {
           if (item.id !== product.id) {
+            item.isSelected = false;
             temp.push(item);
           }
         });
       });
+
       setProductList(temp);
     }
   };
