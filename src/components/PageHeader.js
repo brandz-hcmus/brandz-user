@@ -3,6 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Entypo, Feather, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { ScreenSizes } from '../share/utils/sizes';
+import { colors } from '../styles/color';
+import { ScreenName } from '../share/configs/routers';
 
 const PageHeader = ({ title }) => {
   const navigation = useNavigation();
@@ -19,15 +21,19 @@ const PageHeader = ({ title }) => {
       </View>
       <View style={styles.iconWrapper}>
         <Feather style={styles.icon} name="search" size={24} color="white" />
-        <Ionicons
-          style={styles.icon}
-          name="cart-outline"
-          size={24}
-          color="white"
-        />
-        <View style={styles.cartCount}>
-          <Text style={styles.cartCountText}>2</Text>
-        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate(ScreenName.CART_SCREEN)}
+        >
+          <Ionicons
+            style={styles.icon}
+            name="cart-outline"
+            size={24}
+            color="white"
+          />
+          <View style={styles.cartCount}>
+            <Text style={styles.cartCountText}>4</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -37,13 +43,13 @@ export default PageHeader;
 
 const styles = StyleSheet.create({
   wrapper: {
-    display: 'flex',
     flexDirection: 'row',
-    backgroundColor: 'rgba(0,0,0,0.8)',
-    height: 48,
+    backgroundColor: colors.black,
     width: ScreenSizes.vw,
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingTop: 60,
+    paddingBottom: 15,
   },
   titleWrapper: {
     display: 'flex',

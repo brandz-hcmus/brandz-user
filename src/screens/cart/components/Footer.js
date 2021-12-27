@@ -36,7 +36,7 @@ export function Footer({ selectedItems, navigation }) {
         </View>
         <TouchableOpacity style={styles.voucherItemContainer}>
           <Text style={{ color: colors.blueCyan, marginRight: 5 }}>
-            Chon voucher
+            Chọn voucher
           </Text>
           <View style={styles.voucherItemContainer}>
             <Narrow />
@@ -50,10 +50,11 @@ export function Footer({ selectedItems, navigation }) {
         </View>
 
         <TouchableHighlight
+          style={styles.button}
           disabled={selectedItems.length === 0}
           onPress={gotoPayment}
         >
-          <View style={styles.button}>
+          <View>
             <Text style={styles.btnText}>MUA NGAY</Text>
           </View>
         </TouchableHighlight>
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    borderRadius: 2,
+    borderRadius: 8,
   },
   btnText: {
     color: colors.white,

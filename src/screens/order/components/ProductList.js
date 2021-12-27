@@ -174,13 +174,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
     padding: 10,
     paddingHorizontal: 20,
-    borderRadius: 5,
+    borderRadius: 8,
     marginRight: 20,
   },
   deleteBtn: {
     backgroundColor: colors.red,
     padding: 10,
     paddingHorizontal: 20,
-    borderRadius: 5,
+    borderRadius: 8,
   },
 });

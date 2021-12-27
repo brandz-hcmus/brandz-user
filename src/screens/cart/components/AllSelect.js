@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   deleteBtn: {
     backgroundColor: colors.red,
-    borderRadius: 2,
+    borderRadius: 8,
     padding: 8,
     display: 'flex',
     flexDirection: 'row',

@@ -14,13 +14,14 @@ import { Order } from './order';
 import { CartHeader } from '../header/cart';
 import { TransportMethod } from './tranport-method';
 import { StatusBar } from 'expo-status-bar';
+import { colors } from '../styles/color';
 
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
   return (
     <>
-      <StatusBar backgroundColor={'transparent'} translucent />
+      <StatusBar style="light" backgroundColor={colors.black} />
 
       <NavigationContainer>
         <Stack.Navigator

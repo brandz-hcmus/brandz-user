@@ -38,8 +38,8 @@ export function Footer({ price, selectedItems }) {
           <Text style={{ color: colors.red }}>{NumberToVND(price)}</Text>
         </View>
 
-        <TouchableHighlight onPress={goToOrder}>
-          <View style={styles.button}>
+        <TouchableHighlight style={styles.button} onPress={goToOrder}>
+          <View>
             <Text style={styles.btnText}>ĐẶT HÀNG</Text>
           </View>
         </TouchableHighlight>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.black,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    borderRadius: 2,
+    borderRadius: 8,
   },
   btnText: {
     color: colors.white,
