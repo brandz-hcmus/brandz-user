@@ -1,8 +1,14 @@
 import React from 'react'
-import { StyleSheet, TextInput, View } from 'react-native'
+import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
 import { AntDesign, Feather,Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { ScreenName } from '../share/configs/routers';
 
 const HomeHeader = () => {
+    const navigation=useNavigation();
+    const _onMoveCartScreen=()=>{
+        navigation.navigate(ScreenName.CART_SCREEN);
+    }
     return (
         <View style={styles.container}>
             <View style={styles.searchWrapper}>
@@ -10,7 +16,9 @@ const HomeHeader = () => {
                 <TextInput style={styles.inputWrapper} placeholder='Tìm kiếm...'></TextInput>
                 <Feather style={styles.cameraIcon} name="camera" size={20} color="black" />
             </View>
-            <Ionicons name="cart-outline" size={24} color="white" />
+            <TouchableOpacity onPress={_onMoveCartScreen}>
+                <Ionicons name="cart-outline" size={24} color="white" />
+            </TouchableOpacity>
         </View>
     ) 
 }

@@ -55,12 +55,12 @@ const styles = StyleSheet.create({
   categoryListWrapper: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexWrap:'wrap',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginTop: 16,
     marginBottom: 16,
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingLeft: 8,
+    paddingRight: 8,
   },
 });

@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   cardWrapper: {
     display: 'flex',
     flexDirection: 'column',
-    width: 192,
+    width: 176,
     backgroundColor: '#c4c4c4',
     borderRadius: 8,
     margin: 4,
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
   },
   imgWrapper: {
-    width: 192,
+    width: 176,
     height: 190,
     borderRadius: 8,
   },
