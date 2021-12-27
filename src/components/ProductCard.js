@@ -1,9 +1,12 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
+import { ScreenName } from '../share/configs/routers';
 import StaticImages from '../share/static/images';
 import { FormatVND } from '../share/utils/formatter';
 
 const ProductCard = ({ srcImg, title, salePrice, price }) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.cardWrapper}>
       <Image style={styles.imgWrapper} source={srcImg} />
@@ -20,7 +23,10 @@ const ProductCard = ({ srcImg, title, salePrice, price }) => {
           <Text style={styles.evaluateNum}>(100 đánh giá)</Text>
         </View>
       </View>
-      <TouchableOpacity style={styles.addToCardCTA}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate(ScreenName.CART_SCREEN)}
+        style={styles.addToCardCTA}
+      >
         <Text style={styles.addToCardText}>Thêm vào giỏ hàng</Text>
       </TouchableOpacity>
     </View>
