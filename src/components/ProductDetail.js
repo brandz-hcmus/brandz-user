@@ -12,24 +12,25 @@ import CartCTA from './CartCTA';
 import { ScreenSizes } from '../share/utils/sizes';
 import ProductEvaluate from './ProductEvaluate';
 
-const ProductDetail = () => {
+const ProductDetail = ({itemData}) => {
+  const {srcImg,title,salePrice,price,BULogoSrcImg,BUName}=itemData
   return (
     <View style={styles.wrapper}>
       <ScrollView>
         <Image
-          source={ProductDetailDataSample[0].srcImg}
+          source={srcImg}
           style={styles.imgWrapper}
         />
         <View style={styles.infoWrapper}>
           <Text style={styles.productTitle}>
-            {ProductDetailDataSample[0].title}
+            {title}
           </Text>
           <View style={styles.priceWrapper}>
             <Text style={styles.salePrice}>
-              {FormatVND(ProductDetailDataSample[0].salePrice)}
+              {FormatVND(salePrice)}
             </Text>
             <Text style={styles.price}>
-              {FormatVND(ProductDetailDataSample[0].price)}
+              {FormatVND(price)}
             </Text>
             <View></View>
           </View>
@@ -54,8 +55,8 @@ const ProductDetail = () => {
           </View>
         </View>
         <BUInfo
-          BULogoSrcImg={ProductDetailDataSample[0].BULogoSrcImg}
-          BUName={ProductDetailDataSample[0].BUName}
+          BULogoSrcImg={BULogoSrcImg?BULogoSrcImg:ProductDetailDataSample[0].BULogoSrcImg}
+          BUName={BUName?BUName:ProductDetailDataSample[0].BUName}
         />
         <ProductDetailInfo
           title="Thông tin chi tiết"

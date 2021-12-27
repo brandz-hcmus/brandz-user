@@ -1,8 +1,10 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import StaticImages from '../share/static/images';
 import { FormatVND } from '../share/utils/formatter';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { ScreenName } from '../share/configs/routers';
 
 const ProductListCard = ({
   srcImg,
@@ -12,8 +14,14 @@ const ProductListCard = ({
   BULogoSrcImg,
   BUName,
 }) => {
+  const navigation=useNavigation();
+  const _onPress=()=>{
+    navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN,{
+      srcImg,title,salePrice,price,BULogoSrcImg,BUName
+    })
+  }
   return (
-    <View style={styles.cardWrapper}>
+    <TouchableOpacity style={styles.cardWrapper} onPress={_onPress}>
       <Image style={styles.imgWrapper} source={srcImg} />
       <View style={styles.infoWrapper}>
         <Text style={styles.productTitle}>{title}</Text>
@@ -48,7 +56,7 @@ const ProductListCard = ({
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -13,7 +13,7 @@ const Tab=createBottomTabNavigator();
 const TabScreens = () => {
     return (
         <Tab.Navigator
-            initialRouteName="ProductDetail"
+            initialRouteName="Home"
             screenOptions={{
                 tabBarActiveTintColor: '#2f95dc',
               }}
@@ -28,7 +28,7 @@ const TabScreens = () => {
                     }
                 }}
             />
-            <Tab.Screen 
+            {/* <Tab.Screen 
                 name="ProductDetail"
                 component={ProductDetailPage}
                 options={{
@@ -37,7 +37,7 @@ const TabScreens = () => {
                         <FontAwesome name="home" color={color} />
                     }
                 }}
-            />
+            /> */}
             <Tab.Screen 
                 name="Notification"
                 component={NotificationPage}

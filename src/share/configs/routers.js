@@ -3,7 +3,7 @@ export const ScreenName={
     HOME_SCREEN:'Home',
     NOTIFICATION_SCREEN:'Notification',
     PRODUCTS_SCREEN:'Products',
-    PRODUCT_DETAIL_SCREEN:'Product Detail'
+    PRODUCT_DETAIL_SCREEN:'ProductDetail'
 }
 
 export const ScreenTitle={

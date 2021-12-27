@@ -1,12 +1,20 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 import { ProgressBar, Colors } from 'react-native-paper';
+import { ScreenName } from '../share/configs/routers';
 import StaticImages from '../share/static/images';
 import { FormatVND } from '../share/utils/formatter';
 
 const FlashsaleCard = ({ srcImg, title, salePrice, price }) => {
+  const navigation=useNavigation();
+  const _onPress=()=>{
+    navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN,{
+      srcImg,title,salePrice,price
+    })
+  }
   return (
-    <View style={styles.cardWrapper}>
+    <TouchableOpacity style={styles.cardWrapper} onPress={_onPress}>
       <Image style={styles.imgWrapper} source={srcImg} />
       <View style={styles.promotionRate}>
         <Text style={styles.promotionNum}>62%</Text>
@@ -32,7 +40,7 @@ const FlashsaleCard = ({ srcImg, title, salePrice, price }) => {
       <TouchableOpacity style={styles.addToCardCTA}>
         <Text style={styles.addToCardText}>Thêm vào giỏ hàng</Text>
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 };
 

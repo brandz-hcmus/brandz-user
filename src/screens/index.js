@@ -7,7 +7,7 @@ import TabScreens from './TabScreens';
 import { Homepage } from './Homepage';
 import NotificationPage from './NotificationPage'
 import ProductListPage from './ProductList';
-import ProductDetail from './ProductDetailPage';
+import ProductDetailPage from './ProductDetailPage';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -19,11 +19,13 @@ export default function Navigation() {
         <Stack.Navigator
           initialRouteName={ScreenName.MAIN_SCREEN}
         >
+          {/* Tab Screens */}
           <Stack.Screen
             name={ScreenName.MAIN_SCREEN}
             component={TabScreens}
             options={{ headerShown: false }}
           />
+          {/* End tab screens */}
           <Stack.Screen
             name={ScreenName.HOME_SCREEN}
             component={Homepage}
@@ -41,7 +43,7 @@ export default function Navigation() {
           />
           <Stack.Screen
             name={ScreenName.PRODUCT_DETAIL_SCREEN}
-            component={ProductDetail}
+            component={ProductDetailPage}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

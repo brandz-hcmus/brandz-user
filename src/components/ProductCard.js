@@ -2,10 +2,18 @@ import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 import StaticImages from '../share/static/images';
 import { FormatVND } from '../share/utils/formatter';
+import { useNavigation } from '@react-navigation/native';
+import { ScreenName } from '../share/configs/routers';
 
 const ProductCard = ({ srcImg, title, salePrice, price }) => {
+  const navigation=useNavigation();
+  const _onPress=()=>{
+    navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN,{
+      srcImg,title,salePrice,price
+    })
+  }
   return (
-    <View style={styles.cardWrapper}>
+    <TouchableOpacity style={styles.cardWrapper} onPress={_onPress}>
       <Image style={styles.imgWrapper} source={srcImg} />
       <View style={styles.infoWrapper}>
         <Text style={styles.productTitle}>{title}</Text>
@@ -23,7 +31,7 @@ const ProductCard = ({ srcImg, title, salePrice, price }) => {
       <TouchableOpacity style={styles.addToCardCTA}>
         <Text style={styles.addToCardText}>Thêm vào giỏ hàng</Text>
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 };
 
