@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import StaticImages from '../share/static/images'
+import { ScreenSizes } from '../share/utils/sizes'
 import Countdown from './Countdown'
 
 const FlashsaleTitle = () => {
@@ -31,27 +32,26 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
-        marginLeft:'16px'
+        marginLeft:16
     },
     title:{
         fontStyle:'normal',
         fontWeight:'bold',
-        fontSize:'18px',
+        fontSize:18,
         textAlign:'center',
         color:'#ff4444'
     },
     imgWrapper:{
-        height: '64px',
-        width: '64px',
-        marginLeft:'4px'
+        height: 64,
+        width: 64,
+        marginLeft:4
     },
     divider:{
-        width: '90%',
-        // border:'0.5px solid #000',
-        borderWidth:'0.5px',
+        width: ScreenSizes.vw*0.9,
+        borderWidth:0.5,
         borderStyle:'solid',
         borderColor:'#000',
-        marginHorizontal:'auto'
+        marginLeft:16
     },
    
 })

@@ -13,7 +13,7 @@ const ProductEvaluate = () => {
                     <ProductEvaluateDetail key={index} />
                 ))}
             </ScrollView>
-            <CartCTA />
+            {/* <CartCTA /> */}
         </View> 
     )
 }
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         flex:1,
     },
     listWrapper:{
-        padding:'8px'
+        padding:8,
+        marginBottom:38
     }
 })

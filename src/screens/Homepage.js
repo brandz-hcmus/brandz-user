@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ScrollView, SafeAreaView,View } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView, View,Text } from 'react-native';
 import HomeHeader from '../components/HomeHeader';
 import Banner from '../components/Banner';
 import CategoryList from '../components/CategoryList';
@@ -11,13 +11,13 @@ import Suggestions from '../components/Suggestions';
 export function Homepage() {
   return (
     <SafeAreaView style={styles.container}>
-      <HomeHeader />
+       <HomeHeader />
       <ScrollView>
         <Banner />
         <CategoryList />
         <BUList />
         <View style={styles.productWrapper}>
-          <Flashsale /> 
+          <Flashsale />
           <HotDeals />
           <Suggestions />
         </View>
@@ -28,10 +28,10 @@ export function Homepage() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
   },
-  productWrapper:{
-    backgroundColor:'#fff',
-    borderRadius:'8px'
-  }
+  productWrapper: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+  },
 });

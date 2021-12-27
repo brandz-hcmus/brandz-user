@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import StaticImages from '../share/static/images'
+import { ScreenSizes } from '../share/utils/sizes'
 
 const Banner = () => {
     return (
@@ -14,7 +15,7 @@ export default Banner
 
 const styles = StyleSheet.create({
     bannerWrapper:{
-        width: '100%',
-        height: '375px',
+        width: ScreenSizes.vw,
+        height: 375,
     }
 })

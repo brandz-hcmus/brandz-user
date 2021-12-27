@@ -22,31 +22,32 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         backgroundColor:'rgba(0,0,0,0.8)',
-        height: '3rem',
+        height: 40 ,
         width: '100%',
         justifyContent:'space-evenly',
         alignItems:'center'
     },
     searchWrapper:{
-        width: '18.175rem',
-        height: '1.75rem',
+        width: 310,
+        height: 28,
         borderRadius:8,
         backgroundColor:'#fff',
     },
     searchIcon:{
         position: 'absolute',
-        left: '8px',
+        left: 8,
         fontWeight:'bold',
-        top:'2px'
+        top:1.5
     },
     inputWrapper:{
-        paddingLeft:'2rem',
-        paddingTop:4
+        paddingLeft:30,
+        paddingTop:3,
+        paddingBottom:3
     },
     cameraIcon:{
         position: 'absolute',
         fontWeight:'bold',
-        top:'2px',
-        left:'16.5rem'
+        top:1.5,
+        left:264,
     }
 })

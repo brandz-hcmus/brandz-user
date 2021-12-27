@@ -24,12 +24,14 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection:'column',
         backgroundColor:'#fff',
-        marginBottom:'1rem'
+        marginBottom:16
     },
     listWrapper:{
         display:'flex',
         flexDirection:'row',
         flexWrap:'wrap',
-        padding:'16px',
+        padding:16,
+        alignItems:'center',
+        justifyContent:'center'
     }
 })

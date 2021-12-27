@@ -25,14 +25,14 @@ export default ProductDetailDescription;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    padding: '4px',
+    padding: 4,
   },
-  description:{
-      fontStyle:'normal',
-      fontWeight:'normal',
-      fontSize:'1rem',
-      lineHeight:'20px',
-      color:'#000',
-      marginBottom:'5rem'
-  }
+  description: {
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: 16,
+    lineHeight: 20,
+    color: '#000',
+    marginBottom: 80,
+  },
 });

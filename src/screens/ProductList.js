@@ -1,18 +1,18 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import Filter from '../components/Filter'
 import PageHeader from '../components/PageHeader'
 import ProductList from '../components/ProductList'
 
 const ProductListPage = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <PageHeader title="ĐỀ XUẤT CHO BẠN" />
             <Filter />
             <ScrollView>
                 <ProductList />
             </ScrollView>
-        </View>
+        </SafeAreaView>
     )
 }
 
