@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Button, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import { CartHeader } from '../../header/cart';
 import { colors } from '../../styles/color';
 import { Address } from './components/Address';
@@ -90,7 +90,7 @@ export function CartScreen({ navigation }) {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <PageHeader title={'GIỎ HÀNG'} />
       <ScrollView style={styles.body}>
         <Address />
@@ -108,7 +108,7 @@ export function CartScreen({ navigation }) {
         />
       </ScrollView>
       <Footer navigation={navigation} selectedItems={toggleProducts} />
-    </View>
+    </SafeAreaView>
   );
 }
 

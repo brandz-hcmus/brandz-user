@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Platform } from 'react-native';
 import { Entypo, Feather, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { ScreenSizes } from '../share/utils/sizes';
 import { colors } from '../styles/color';
 import { ScreenName } from '../share/configs/routers';
+
+
 
 const PageHeader = ({ title }) => {
   const navigation = useNavigation();
@@ -48,8 +50,8 @@ const styles = StyleSheet.create({
     width: ScreenSizes.vw,
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 60,
-    paddingBottom: 15,
+    paddingTop: Platform.OS==='android'?60:14,
+    paddingBottom: 14,
   },
   titleWrapper: {
     display: 'flex',

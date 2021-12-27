@@ -5,6 +5,7 @@ import {
   View,
   TouchableHighlight,
   TouchableWithoutFeedback,
+  SafeAreaView
 } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { CartHeader } from '../../header/cart';
@@ -37,7 +38,7 @@ export function PaymentMethod() {
     setSelectedID(id);
   };
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Spinner visible={loading} />
       <PageHeader title={'PHƯƠNG THỨC THANH TOÁN'} />
       <View style={styles.suggestContainer}>
@@ -129,7 +130,7 @@ export function PaymentMethod() {
           </View>
         </TouchableHighlight>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -39,7 +39,7 @@ export function PayMent() {
   }, [route.params.items]);
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <PageHeader title={'THANH TOÁN'} />
       <ScrollView style={styles.body}>
         <Address />
@@ -52,7 +52,7 @@ export function PayMent() {
         selectedItems={route.params.items}
         price={totalPrice + shipPrice}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
