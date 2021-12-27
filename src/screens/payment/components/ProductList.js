@@ -18,23 +18,20 @@ export function ProductList({ products }) {
       {products.map((product) => (
         <View style={styles.productItem} key={product.id}>
           <View style={styles.leftItem}>
-            <Image style={styles.productImage} source={{ uri: product.url }} />
+            <Image style={styles.productImage} source={product.srcImg} />
           </View>
           <View style={styles.rightItem}>
-            <Text style={styles.productName}>{product.name}</Text>
+            <Text style={styles.productName}>{product.title}</Text>
 
             <View style={styles.centerView}>
               <Text style={styles.smallText}>Màu: </Text>
               <View
-                style={[
-                  styles.colorContainer,
-                  { backgroundColor: product.color },
-                ]}
+                style={[styles.colorContainer, { backgroundColor: '#a4a4a4' }]}
               ></View>
             </View>
-            <Text style={styles.smallText}>Size: {product.size}</Text>
+            <Text style={styles.smallText}>Size: X</Text>
             <Text style={styles.productPrice}>
-              {NumberToVND(product.price)}
+              {NumberToVND(product.salePrice)}
             </Text>
             <Text style={styles.smallText}>Số lượng: {product.quantity}</Text>
             <View style={styles.centerView}></View>

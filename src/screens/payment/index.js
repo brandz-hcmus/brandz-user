@@ -32,8 +32,9 @@ export function PayMent() {
 
   React.useEffect(() => {
     let sum = 0;
+
     route.params.items.forEach((item) => {
-      sum += item.price * item.quantity;
+      sum += item.salePrice * item.quantity;
     });
     setTotalPrice(sum);
   }, [route.params.items]);

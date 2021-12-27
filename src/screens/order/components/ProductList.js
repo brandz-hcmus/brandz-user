@@ -30,7 +30,7 @@ export function ProductList() {
     <SafeAreaView>
       <View style={styles.productItem}>
         <View style={styles.leftItem}>
-          <Image style={styles.productImage} source={{ uri: product.url }} />
+          <Image style={styles.productImage} source={product.srcImg} />
           {len > 1 && (
             <View style={styles.addition}>
               <Text style={{ color: colors.white, fontSize: 18 }}>+{len}</Text>
@@ -38,10 +38,13 @@ export function ProductList() {
           )}
         </View>
         <View style={styles.rightItem}>
-          <Text style={styles.productName}>
-            <Text>{product.name} </Text>
-            <Text>{len > 1 && `và ${len - 1} sản phẩm khác`}</Text>
-          </Text>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={styles.productName}>
+              <Text>{product.title} </Text>
+              <Text>{len > 1 && `và ${len - 1} sản phẩm khác`}</Text>
+            </Text>
+          </View>
+
           <View style={{ flexDirection: 'row' }}>
             <Text style={styles.smallText}>Trạng thái: </Text>
             <Text style={styles.status}>Đang chờ xác nhận</Text>
@@ -89,6 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   productName: {
+    flex: 1,
     fontSize: 16,
     fontWeight: 'bold',
     paddingRight: 10,
@@ -159,8 +163,7 @@ const styles = StyleSheet.create({
   deleteItemBtn: {
     paddingHorizontal: 10,
     paddingVertical: 2,
-
-    marginLeft: 30,
+    marginLeft: 10,
   },
   modalBackground: {
     margin: 0,
@@ -175,7 +178,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingHorizontal: 20,
     borderRadius: 8,
-    marginRight: 20,
+    marginRight: 10,
   },
   deleteBtn: {
     backgroundColor: colors.red,

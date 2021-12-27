@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import StaticImages from '../share/static/images';
 import { FormatVND } from '../share/utils/formatter';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
@@ -13,13 +20,20 @@ const ProductListCard = ({
   salePrice,
   BULogoSrcImg,
   BUName,
+  id,
 }) => {
-  const navigation=useNavigation();
-  const _onPress=()=>{
-    navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN,{
-      srcImg,title,salePrice,price,BULogoSrcImg,BUName
-    })
-  }
+  const navigation = useNavigation();
+  const _onPress = () => {
+    navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN, {
+      srcImg,
+      title,
+      salePrice,
+      price,
+      BULogoSrcImg,
+      BUName,
+      id,
+    });
+  };
   return (
     <TouchableOpacity style={styles.cardWrapper} onPress={_onPress}>
       <Image style={styles.imgWrapper} source={srcImg} />

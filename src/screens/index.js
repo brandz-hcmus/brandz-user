@@ -44,10 +44,7 @@ export default function Navigation() {
             component={PaymentMethod}
           />
           <Stack.Screen name={ScreenName.ORDER_SCREEN} component={Order} />
-          <Stack.Screen
-            name={ScreenName.MAIN_SCREEN}
-            component={TabScreens}
-          />
+          <Stack.Screen name={ScreenName.MAIN_SCREEN} component={TabScreens} />
           <Stack.Screen
             name={ScreenName.NOTIFICATION_SCREEN}
             component={NotificationPage}

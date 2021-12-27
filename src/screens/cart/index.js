@@ -1,5 +1,13 @@
 import React, { useRef } from 'react';
-import { View, Text, Button, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import { CartHeader } from '../../header/cart';
 import { colors } from '../../styles/color';
 import { Address } from './components/Address';
@@ -8,10 +16,20 @@ import { Footer } from './components/Footer';
 import { ProductList } from './components/ProductList';
 import { products } from './components/dummy/data';
 import PageHeader from '../../components/PageHeader';
-export function CartScreen({ navigation }) {
+import { cart } from '../../store/cart';
+import { observer } from 'mobx-react-lite';
+import { useNavigation } from '@react-navigation/native';
+import { ScreenName } from '../../share/configs/routers';
+export const CartScreen = observer(() => {
   const [productList, setProductList] = React.useState(products);
   const [isCheckedAll, setIsCheckedAll] = React.useState(false);
   let selectedLength = useRef(0);
+
+  const navigation = useNavigation();
+
+  React.useEffect(() => {
+    setProductList([...cart.cartItems]);
+  }, [cart.cartLen]);
 
   React.useEffect(() => {
     if (isCheckedAll) {
@@ -39,9 +57,7 @@ export function CartScreen({ navigation }) {
   };
 
   const deleteProduct = (id) => {
-    const filtered = productList.filter((item) => item.id !== id);
-
-    setProductList(filtered);
+    cart.deleteItems([id]);
   };
 
   const toggleItem = (id) => {
@@ -75,42 +91,53 @@ export function CartScreen({ navigation }) {
   const onDeleteMany = () => {
     if (toggleProducts.length) {
       const temp = [];
+      const ids = toggleProducts.map((e) => e.id);
 
-      toggleProducts.forEach((product) => {
-        productList.forEach((item) => {
-          if (item.id !== product.id) {
-            item.isSelected = false;
-            temp.push(item);
-          }
-        });
-      });
-
-      setProductList(temp);
+      cart.deleteItems(ids);
     }
   };
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <PageHeader title={'GIỎ HÀNG'} />
-      <ScrollView style={styles.body}>
-        <Address />
-        <AllSelect
-          selectNumber={toggleProducts.length}
-          isChecked={isCheckedAll}
-          onCheckAll={checkAll}
-          onDeleteMany={onDeleteMany}
-        />
-        <ProductList
-          deleteItem={deleteProduct}
-          changeQuantity={changeQuantity}
-          products={productList}
-          onToggle={toggleItem}
-        />
-      </ScrollView>
+      {productList.length ? (
+        <ScrollView style={styles.body}>
+          <Address />
+          <AllSelect
+            selectNumber={toggleProducts.length}
+            isChecked={isCheckedAll}
+            onCheckAll={checkAll}
+            onDeleteMany={onDeleteMany}
+          />
+          <ProductList
+            deleteItem={deleteProduct}
+            changeQuantity={changeQuantity}
+            products={productList}
+            onToggle={toggleItem}
+          />
+        </ScrollView>
+      ) : (
+        <View
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
+          <Text>CHƯA CÓ SẢN PHẨM NÀO TRONG GIỎ HÀNG</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(ScreenName.PRODUCTS_SCREEN)}
+            style={{
+              backgroundColor: colors.red,
+              padding: 10,
+              borderRadius: 8,
+              marginTop: 20,
+            }}
+          >
+            <Text style={{ color: colors.white }}>ĐẾN DANH SÁCH SẢN PHẨM</Text>
+          </TouchableOpacity>
+        </View>
+      )}
       <Footer navigation={navigation} selectedItems={toggleProducts} />
     </SafeAreaView>
   );
-}
+});
 
 const styles = StyleSheet.create({
   body: {

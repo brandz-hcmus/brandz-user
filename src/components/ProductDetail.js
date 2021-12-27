@@ -13,7 +13,9 @@ import { ScreenSizes } from '../share/utils/sizes';
 import ProductEvaluate from './ProductEvaluate';
 
 const ProductDetail = ({ itemData }) => {
-  const { srcImg, title, salePrice, price, BULogoSrcImg, BUName } = itemData;
+  const { srcImg, title, salePrice, price, BULogoSrcImg, BUName, id } =
+    itemData;
+
   return (
     <View style={styles.wrapper}>
       <ScrollView>
@@ -41,6 +43,7 @@ const ProductDetail = ({ itemData }) => {
                 price={item.price}
                 salePrice={item.salePrice}
                 key={item.id}
+                id={item.id}
               />
             ))}
           </View>

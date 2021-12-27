@@ -18,7 +18,7 @@ export function Footer({ selectedItems, navigation }) {
   React.useEffect(() => {
     let sum = 0;
     selectedItems.forEach((item) => {
-      sum += item.price * item.quantity;
+      sum += item.salePrice * item.quantity;
     });
 
     setTotalPrice(sum);

@@ -5,13 +5,17 @@ import StaticImages from '../share/static/images';
 import { FormatVND } from '../share/utils/formatter';
 import { useNavigation } from '@react-navigation/native';
 
-const ProductCard = ({ srcImg, title, salePrice, price }) => {
-  const navigation=useNavigation();
-  const _onPress=()=>{
-    navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN,{
-      srcImg,title,salePrice,price
-    })
-  }
+const ProductCard = ({ srcImg, title, salePrice, price, id }) => {
+  const navigation = useNavigation();
+  const _onPress = () => {
+    navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN, {
+      srcImg,
+      title,
+      salePrice,
+      price,
+      id,
+    });
+  };
   return (
     <TouchableOpacity style={styles.cardWrapper} onPress={_onPress}>
       <Image style={styles.imgWrapper} source={srcImg} />

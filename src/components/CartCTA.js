@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ScreenSizes } from '../share/utils/sizes';
+import { cart } from '../store/cart';
 
 const CartCTA = ({ item }) => {
-  console.log(item);
   return (
     <View style={styles.wrapper}>
       <Ionicons
@@ -14,9 +14,11 @@ const CartCTA = ({ item }) => {
         color="black"
       />
       <View style={styles.addToCartCTA}>
-        <View style={styles.addToCart}>
-          <Text style={styles.addToCartText}>THÊM VÀO GIỎ HÀNG</Text>
-        </View>
+        <TouchableOpacity onPress={() => cart.addItem(item)}>
+          <View style={styles.addToCart}>
+            <Text style={styles.addToCartText}>THÊM VÀO GIỎ HÀNG</Text>
+          </View>
+        </TouchableOpacity>
         <View style={styles.buyNow}>
           <Text style={styles.buyNowText}>MUA NGAY</Text>
         </View>

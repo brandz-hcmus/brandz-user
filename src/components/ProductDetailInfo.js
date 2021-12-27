@@ -4,7 +4,6 @@ import { DataTable } from 'react-native-paper';
 import ProductDetailInfoLayout from './ProductDetailInfoLayout';
 
 const ProductDetailInfo = ProductDetailInfoLayout(({ detail }) => {
-    console.log(detail)
   return (
     <View style={styles.wrapper}>
       <DataTable>

@@ -1,12 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Platform } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Platform,
+} from 'react-native';
 import { Entypo, Feather, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { ScreenSizes } from '../share/utils/sizes';
 import { colors } from '../styles/color';
 import { ScreenName } from '../share/configs/routers';
-
-
+import { cart } from '../store/cart';
+import { Observer } from 'mobx-react';
 
 const PageHeader = ({ title }) => {
   const navigation = useNavigation();
@@ -32,9 +38,16 @@ const PageHeader = ({ title }) => {
             size={24}
             color="white"
           />
-          <View style={styles.cartCount}>
-            <Text style={styles.cartCountText}>4</Text>
-          </View>
+          <Observer>
+            {() => {
+              const len = cart.cartLen;
+              return (
+                <View style={styles.cartCount}>
+                  <Text style={styles.cartCountText}>{len}</Text>
+                </View>
+              );
+            }}
+          </Observer>
         </TouchableOpacity>
       </View>
     </View>
@@ -50,7 +63,7 @@ const styles = StyleSheet.create({
     width: ScreenSizes.vw,
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: Platform.OS==='android'?60:14,
+    paddingTop: Platform.OS === 'android' ? 60 : 14,
     paddingBottom: 14,
   },
   titleWrapper: {
