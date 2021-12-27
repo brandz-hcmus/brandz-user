@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "brandz-user",
-    "slug": "brandz-user",
+    "name": "brandz-user-app",
+    "slug": "brandz-user-app",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
     ],
-    "description": ""
+    "description": "Local Brand E-commerce Native App"
   },
   "name": "brandz-user"
 }

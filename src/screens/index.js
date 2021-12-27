@@ -46,22 +46,18 @@ export default function Navigation() {
           <Stack.Screen
             name={ScreenName.MAIN_SCREEN}
             component={TabScreens}
-            options={{ headerShown: false }}
           />
           <Stack.Screen
             name={ScreenName.NOTIFICATION_SCREEN}
             component={NotificationPage}
-            options={{ headerShown: false }}
           />
           <Stack.Screen
             name={ScreenName.PRODUCTS_SCREEN}
             component={ProductListPage}
-            options={{ headerShown: false }}
           />
           <Stack.Screen
             name={ScreenName.PRODUCT_DETAIL_SCREEN}
             component={ProductDetailPage}
-            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>
