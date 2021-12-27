@@ -9,6 +9,7 @@ import { Transport } from './components/Transport';
 import { PaymentDetail } from './components/PaymentDetail';
 import { Footer } from './components/Footer';
 import { Calc } from './components/Calc';
+import PageHeader from '../../components/PageHeader';
 
 export function PayMent() {
   const [totalPrice, setTotalPrice] = React.useState(0);
@@ -39,8 +40,7 @@ export function PayMent() {
 
   return (
     <View style={{ flex: 1 }}>
-      <CartHeader content={'THANH TOÁN'}></CartHeader>
-
+      <PageHeader title={'THANH TOÁN'} />
       <ScrollView style={styles.body}>
         <Address />
         <ProductList products={route.params.items}></ProductList>

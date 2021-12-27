@@ -12,26 +12,17 @@ import CartCTA from './CartCTA';
 import { ScreenSizes } from '../share/utils/sizes';
 import ProductEvaluate from './ProductEvaluate';
 
-const ProductDetail = ({itemData}) => {
-  const {srcImg,title,salePrice,price,BULogoSrcImg,BUName}=itemData
+const ProductDetail = ({ itemData }) => {
+  const { srcImg, title, salePrice, price, BULogoSrcImg, BUName } = itemData;
   return (
     <View style={styles.wrapper}>
       <ScrollView>
-        <Image
-          source={srcImg}
-          style={styles.imgWrapper}
-        />
+        <Image source={srcImg} style={styles.imgWrapper} />
         <View style={styles.infoWrapper}>
-          <Text style={styles.productTitle}>
-            {title}
-          </Text>
+          <Text style={styles.productTitle}>{title}</Text>
           <View style={styles.priceWrapper}>
-            <Text style={styles.salePrice}>
-              {FormatVND(salePrice)}
-            </Text>
-            <Text style={styles.price}>
-              {FormatVND(price)}
-            </Text>
+            <Text style={styles.salePrice}>{FormatVND(salePrice)}</Text>
+            <Text style={styles.price}>{FormatVND(price)}</Text>
             <View></View>
           </View>
           <View style={styles.evaluateWrapper}>
@@ -55,8 +46,12 @@ const ProductDetail = ({itemData}) => {
           </View>
         </View>
         <BUInfo
-          BULogoSrcImg={BULogoSrcImg?BULogoSrcImg:ProductDetailDataSample[0].BULogoSrcImg}
-          BUName={BUName?BUName:ProductDetailDataSample[0].BUName}
+          BULogoSrcImg={
+            BULogoSrcImg
+              ? BULogoSrcImg
+              : ProductDetailDataSample[0].BULogoSrcImg
+          }
+          BUName={BUName ? BUName : ProductDetailDataSample[0].BUName}
         />
         <ProductDetailInfo
           title="Thông tin chi tiết"
@@ -79,7 +74,7 @@ const ProductDetail = ({itemData}) => {
         </View>
         <ProductEvaluate />
       </ScrollView>
-      <CartCTA />
+      <CartCTA item={itemData} />
     </View>
   );
 };
@@ -182,8 +177,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems:'center',
-    justifyContent:'center',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 16,
   },
   endZone: {

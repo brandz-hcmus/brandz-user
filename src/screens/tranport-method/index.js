@@ -16,6 +16,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { ScreenName } from '../../share/configs/routers';
 import { delayTime } from '../../share/utils/async';
 import Spinner from 'react-native-loading-spinner-overlay';
+import PageHeader from '../../components/PageHeader';
 
 export function TransportMethod() {
   const [selectedID, setSelectedID] = React.useState(0);
@@ -38,10 +39,7 @@ export function TransportMethod() {
   return (
     <View style={{ flex: 1 }}>
       <Spinner visible={loading} />
-      <CartHeader
-        navigation={navigation}
-        content={'PHƯƠNG THỨC VAN CHUYEN'}
-      ></CartHeader>
+      <PageHeader title={'PHƯƠNG THỨC VẬN CHUYỂN'} />
       <View style={styles.suggestContainer}>
         <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 10 }}>
           Đề xuất

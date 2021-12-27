@@ -7,6 +7,7 @@ import { AllSelect } from './components/AllSelect';
 import { Footer } from './components/Footer';
 import { ProductList } from './components/ProductList';
 import { products } from './components/dummy/data';
+import PageHeader from '../../components/PageHeader';
 export function CartScreen({ navigation }) {
   const [productList, setProductList] = React.useState(products);
   const [isCheckedAll, setIsCheckedAll] = React.useState(false);
@@ -90,7 +91,7 @@ export function CartScreen({ navigation }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <CartHeader navigation={navigation} content={'GIO HANG'} />
+      <PageHeader title={'GIỎ HÀNG'} />
       <ScrollView style={styles.body}>
         <Address />
         <AllSelect

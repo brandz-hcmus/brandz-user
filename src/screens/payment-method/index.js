@@ -17,6 +17,7 @@ import { ScreenName } from '../../share/configs/routers';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { delayTime } from '../../share/utils/async';
+import PageHeader from '../../components/PageHeader';
 
 export function PaymentMethod() {
   const [selectedID, setSelectedID] = React.useState(0);
@@ -38,10 +39,7 @@ export function PaymentMethod() {
   return (
     <View style={{ flex: 1 }}>
       <Spinner visible={loading} />
-      <CartHeader
-        navigation={navigation}
-        content={'PHƯƠNG THỨC THANH TOÁN'}
-      ></CartHeader>
+      <PageHeader title={'PHƯƠNG THỨC THANH TOÁN'} />
       <View style={styles.suggestContainer}>
         <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 10 }}>
           Đề xuất

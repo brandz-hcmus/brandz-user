@@ -3,7 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ScreenSizes } from '../share/utils/sizes';
 
-const CartCTA = () => {
+const CartCTA = ({ item }) => {
+  console.log(item);
   return (
     <View style={styles.wrapper}>
       <Ionicons
