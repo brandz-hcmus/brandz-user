@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     width: ScreenSizes.vw,
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: Platform.OS === 'android' ? 60 : 14,
+    paddingTop: Platform.OS === 'android' ? 65 : 14,
     paddingBottom: 14,
   },
   titleWrapper: {

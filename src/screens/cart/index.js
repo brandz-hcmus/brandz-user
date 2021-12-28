@@ -29,7 +29,7 @@ export const CartScreen = observer(() => {
 
   React.useEffect(() => {
     setProductList([...cart.cartItems]);
-  }, [cart.cartLen]);
+  }, [cart.dataVersion]);
 
   React.useEffect(() => {
     if (isCheckedAll) {
@@ -47,13 +47,10 @@ export const CartScreen = observer(() => {
   }, [isCheckedAll]);
 
   const changeQuantity = (id, type) => {
-    const temp = [...productList];
-    const index = temp.findIndex((item) => item.id === id);
-    if (type === 'increase') temp[index].quantity++;
+    if (type === 'increase') cart.increaseQuantity(id);
     else {
-      temp[index].quantity > 1 && temp[index].quantity--;
+      cart.decreaseQuantity(id);
     }
-    setProductList(temp);
   };
 
   const deleteProduct = (id) => {

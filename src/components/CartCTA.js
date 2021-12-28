@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ScreenSizes } from '../share/utils/sizes';
 import { cart } from '../store/cart';
+import { AddToCartModal } from './AddToCartModal';
 
 const CartCTA = ({ item }) => {
   return (
@@ -14,7 +15,12 @@ const CartCTA = ({ item }) => {
         color="black"
       />
       <View style={styles.addToCartCTA}>
-        <TouchableOpacity onPress={() => cart.addItem(item)}>
+        <TouchableOpacity
+          onPress={() => {
+            cart.addItem(item);
+            cart.toggleModal();
+          }}
+        >
           <View style={styles.addToCart}>
             <Text style={styles.addToCartText}>THÊM VÀO GIỎ HÀNG</Text>
           </View>
@@ -23,6 +29,7 @@ const CartCTA = ({ item }) => {
           <Text style={styles.buyNowText}>MUA NGAY</Text>
         </View>
       </View>
+      <AddToCartModal />
     </View>
   );
 };
