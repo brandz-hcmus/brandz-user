@@ -45,8 +45,8 @@ export function PayMent() {
       <ScrollView style={styles.body}>
         <Address />
         <ProductList products={route.params.items}></ProductList>
-        <Transport id={transportID} />
-        <PaymentDetail />
+        <Transport price={totalPrice} id={transportID} />
+        <PaymentDetail ship={shipPrice} price={totalPrice} />
         <Calc totalPrice={totalPrice} ship={shipPrice} />
       </ScrollView>
       <Footer

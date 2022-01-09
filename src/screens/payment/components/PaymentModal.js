@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 import { colors } from '../../../styles/color';
 
-export function DeleteModal({ onClickModal, showModal, content }) {
+export function PaymentModal({ onClickModal, showModal, content }) {
   const [show, setShow] = React.useState(false);
 
   React.useEffect(() => {
@@ -23,9 +23,9 @@ export function DeleteModal({ onClickModal, showModal, content }) {
         <View style={styles.center}>
           <TouchableOpacity
             style={styles.deleteBtn}
-            onPress={() => onClickModal('delete')}
+            onPress={() => onClickModal('ok')}
           >
-            <Text style={styles.whiteText}>Xóa</Text>
+            <Text style={styles.whiteText}>Xác nhận</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.cancelBtn}

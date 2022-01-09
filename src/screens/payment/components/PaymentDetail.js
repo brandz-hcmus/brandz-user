@@ -5,7 +5,7 @@ import { colors } from '../../../styles/color';
 import Payment from './icons/payment.svg';
 import Narrow from './icons/narrow-left.svg';
 import { ScreenName } from '../../../share/configs/routers';
-export function PaymentDetail() {
+export function PaymentDetail({ price, ship }) {
   const navigation = useNavigation();
   const route = useRoute();
   const [paymentID, setPaymentID] = React.useState(0);
@@ -20,6 +20,8 @@ export function PaymentDetail() {
       onPress={() =>
         navigation.navigate(ScreenName.PAYMENT_METHOD_SCREEN, {
           id: paymentID,
+          price: price,
+          ship: ship,
         })
       }
       style={styles.container}

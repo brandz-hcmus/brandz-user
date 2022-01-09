@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 import { colors } from '../../../styles/color';
 
-export function DeleteModal({ onClickModal, showModal, content }) {
+export function EmptyCartModal({ onClickModal, showModal, content }) {
   const [show, setShow] = React.useState(false);
 
   React.useEffect(() => {
@@ -19,19 +19,17 @@ export function DeleteModal({ onClickModal, showModal, content }) {
       animationOut={'bounceOut'}
     >
       <View style={styles.modal}>
-        <Text style={{ color: colors.black, fontSize: 18 }}>{content}</Text>
+        <Text
+          style={{ color: colors.black, fontSize: 18, textAlign: 'center' }}
+        >
+          {content}
+        </Text>
         <View style={styles.center}>
           <TouchableOpacity
             style={styles.deleteBtn}
             onPress={() => onClickModal('delete')}
           >
-            <Text style={styles.whiteText}>Xóa</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.cancelBtn}
-            onPress={() => onClickModal('cancel')}
-          >
-            <Text style={styles.whiteText}>Hủy</Text>
+            <Text style={styles.whiteText}>Xác nhận</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -51,13 +49,6 @@ const styles = StyleSheet.create({
 
   deleteBtn: {
     backgroundColor: colors.red,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 8,
-    marginRight: 20,
-  },
-  cancelBtn: {
-    backgroundColor: colors.black,
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,

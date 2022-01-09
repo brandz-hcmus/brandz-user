@@ -5,13 +5,14 @@ import { ScreenName } from '../../../share/configs/routers';
 import { colors } from '../../../styles/color';
 import Narrow from './icons/narrow-left.svg';
 import Truck from './icons/truck.svg';
-export function Transport({ id }) {
+export function Transport({ id, price }) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
       onPress={() =>
         navigation.navigate(ScreenName.TRANSPORT_METHOD_SCREEN, {
           id: id,
+          price: price,
         })
       }
       style={styles.container}

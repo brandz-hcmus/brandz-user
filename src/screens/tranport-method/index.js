@@ -5,7 +5,7 @@ import {
   View,
   TouchableWithoutFeedback,
   TouchableHighlight,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { CartHeader } from '../../header/cart';
@@ -18,9 +18,11 @@ import { ScreenName } from '../../share/configs/routers';
 import { delayTime } from '../../share/utils/async';
 import Spinner from 'react-native-loading-spinner-overlay';
 import PageHeader from '../../components/PageHeader';
+import { Calc } from '../payment/components/Calc';
 
 export function TransportMethod() {
   const [selectedID, setSelectedID] = React.useState(0);
+  const [totalPrice, setTotalPrice] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
 
   const navigation = useNavigation();
@@ -28,6 +30,9 @@ export function TransportMethod() {
   React.useEffect(() => {
     if (route.params.id) {
       setSelectedID(route.params.id);
+    }
+    if (route.params.price) {
+      setTotalPrice(route.params.price);
     }
   }, [route.params]);
 
@@ -114,6 +119,10 @@ export function TransportMethod() {
           </View>
         </TouchableWithoutFeedback>
       </View>
+      <Calc
+        totalPrice={totalPrice}
+        ship={selectedID === 0 ? 16000 : selectedID === 1 ? 20000 : 30000}
+      />
       <View style={styles.footer}>
         <TouchableHighlight
           onPress={() =>
@@ -171,6 +180,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 10,
+    paddingVertical: 20,
     alignItems: 'center',
   },
   button: {

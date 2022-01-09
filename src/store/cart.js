@@ -15,11 +15,16 @@ class Cart {
       toggleModal: action,
       increaseQuantity: action,
       decreaseQuantity: action,
+      clearItem: action,
     });
   }
 
   get cartLen() {
     return this.cartItems.length;
+  }
+  clearItem() {
+    this.cartItems = [];
+    this.dataVersion++;
   }
 
   addItem(item) {

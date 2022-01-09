@@ -13,24 +13,42 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScreenName } from '../../../share/configs/routers';
 import { delayTime } from '../../../share/utils/async';
 import { NumberToVND } from '../../../share/utils/formatter';
+import { PaymentModal } from './PaymentModal';
+import { cart } from '../../../store/cart';
 
 export function Footer({ price, selectedItems }) {
   const [loading, setLoading] = React.useState(false);
+  const [showModal, setShowModal] = React.useState(false);
 
   const navigation = useNavigation();
 
-  const goToOrder = async () => {
-    setLoading(true);
-    await delayTime(1000);
-    setLoading(false);
-    navigation.navigate(ScreenName.ORDER_SCREEN, {
-      products: selectedItems,
-      totalPrice: price,
-    });
+  const goToOrder = () => {
+    setShowModal(true);
+  };
+
+  const onClickModal = async (type) => {
+    if (type === 'ok') {
+      setShowModal(false);
+      setLoading(true);
+      await delayTime(1000);
+      setLoading(false);
+      navigation.navigate(ScreenName.ORDER_SCREEN, {
+        products: selectedItems,
+        totalPrice: price,
+      });
+      cart.clearItem();
+    } else {
+      setShowModal(false);
+    }
   };
 
   return (
     <View style={styles.footer}>
+      <PaymentModal
+        onClickModal={onClickModal}
+        content={`BẠN MUỐN ĐẶT ${selectedItems.length} SẢN PHẨM`}
+        showModal={showModal}
+      />
       <Spinner visible={loading} />
       <View style={styles.buttonContainer}>
         <View>
@@ -71,6 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     paddingHorizontal: 15,
     paddingVertical: 5,
+    paddingVertical: 20,
   },
   voucherContainer: {
     display: 'flex',

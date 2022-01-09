@@ -32,6 +32,10 @@ export const CartScreen = observer(() => {
   }, [cart.dataVersion]);
 
   React.useEffect(() => {
+    console.log('list', productList);
+  }, [productList]);
+
+  React.useEffect(() => {
     if (isCheckedAll) {
       const temp = [...productList];
       temp.forEach((product) => (product.isSelected = true));
@@ -131,7 +135,11 @@ export const CartScreen = observer(() => {
           </TouchableOpacity>
         </View>
       )}
-      <Footer navigation={navigation} selectedItems={toggleProducts} />
+      {productList.length ? (
+        <Footer navigation={navigation} selectedItems={toggleProducts} />
+      ) : (
+        <></>
+      )}
     </SafeAreaView>
   );
 });
