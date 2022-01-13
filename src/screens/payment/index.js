@@ -60,6 +60,6 @@ export function PayMent() {
 const styles = StyleSheet.create({
   body: {
     backgroundColor: colors.backGround,
-    marginBottom: 60,
+    marginBottom: 80,
   },
 });

@@ -147,5 +147,6 @@ export const CartScreen = observer(() => {
 const styles = StyleSheet.create({
   body: {
     backgroundColor: colors.backGround,
+    marginBottom: 20,
   },
 });
