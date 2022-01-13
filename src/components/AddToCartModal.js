@@ -12,6 +12,7 @@ export const AddToCartModal = observer(() => {
   const navigation = useNavigation();
   return (
     <Modal
+      onBackdropPress={() => cart.toggleModal()}
       transparent={true}
       style={styles.modal}
       hasBackdrop={true}
