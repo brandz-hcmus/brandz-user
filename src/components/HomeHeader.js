@@ -31,7 +31,7 @@ const HomeHeader = ({ }) => {
   const _handleSearchProducts=(searchText)=>{
     let res=[];
     ProductListData.forEach(item=>{
-      if(item.searchTerm.includes(searchText)){
+      if(item.searchTerm.includes(searchText.toLowerCase())){
         res.push(item);
       }
     })
@@ -49,13 +49,18 @@ const HomeHeader = ({ }) => {
         setDataSearch(res);
         setNotFound(null);
       }else{
-        setVisible(false);
+        setVisible(true);
         setDataSearch([]);
-        setNotFound('No matching data...');
+        setNotFound('Không tìm thấy sản phẩm cần tìm');
       }
     }
   },[debounceSearch])
-  
+  const _onBlur=()=>{
+    setVisible(false);
+    setSampleText('');
+    setDataSearch([]);
+    setNotFound(null);
+  }
   return (
     <>
       <View style={styles.container}>
@@ -70,6 +75,8 @@ const HomeHeader = ({ }) => {
             style={styles.inputWrapper}
             placeholder="Tìm kiếm..."
             onChangeText={_onChangeText}
+            value={sampleText}
+            onBlur={_onBlur}
           ></TextInput>
           <Feather
             style={styles.cameraIcon}

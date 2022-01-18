@@ -1,23 +1,38 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import StaticImages from '../share/static/images'
 import { ProductData } from '../share/utils/constants'
 import { ScreenSizes } from '../share/utils/sizes'
 import { colors } from '../styles/color'
 import { FormatVND } from '../share/utils/formatter'
+import { useNavigation } from '@react-navigation/native'
+import { ScreenName } from '../share/configs/routers'
 
 
 const SearchResultCard = ({item}) => {
+    const navigation=useNavigation();
+    const {id,srcImg,title,salePrice,price,BULogoSrcImg}=item;
+    const _navigateProductDetail=()=>{
+        console.log('press ne');
+        navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN, {
+            srcImg,
+            title,
+            salePrice,
+            price,
+            id,
+          });
+    }
+    
     return (
-        <View style={styles.wrapper}>
-            <Image source={item.srcImg} style={styles.image}></Image>
+        <TouchableOpacity style={styles.wrapper} onPress={_navigateProductDetail}>
+            <Image source={srcImg} style={styles.image}></Image>
             <View style={styles.infoWrapper}>
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.salePrice}>{FormatVND(item.salePrice)} đ</Text>
-                <Text style={styles.price}>{FormatVND(item.price)} đ</Text>
-                <Image source={item.BULogoSrcImg} style={styles.logoBU}></Image>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.salePrice}>{FormatVND(salePrice)} đ</Text>
+                <Text style={styles.price}>{FormatVND(price)} đ</Text>
+                <Image source={BULogoSrcImg} style={styles.logoBU}></Image>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -56,7 +71,7 @@ const styles = StyleSheet.create({
     },
     salePrice:{
         fontStyle:'normal',
-        fontWeight:600,
+        fontWeight:"600",
         fontSize:14,
         lineHeight:20,
         color:colors.red,
@@ -71,7 +86,7 @@ const styles = StyleSheet.create({
     logoBU:{
         width: 32,
         height:32,
-        borderRadius:'50%',
+        borderRadius:16,
         marginTop:4,
         marginBottom:4
     }

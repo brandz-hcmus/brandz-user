@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import StaticImages from '../share/static/images'
 import { ScreenSizes } from '../share/utils/sizes'
 
