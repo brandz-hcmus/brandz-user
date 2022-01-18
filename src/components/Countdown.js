@@ -1,7 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import useCountdown from "@bradgarropy/use-countdown"
 
 const Countdown = ({ ...props }) => {
+  const countdown=useCountdown({
+    minutes:9,
+    seconds:30,
+    format:"mm:ss",
+    onCompleted: () => console.log("onCompleted"),
+  })
   return (
     <View style={styles.wrapper} {...props}>
       <View style={styles.squareBox}>
@@ -9,11 +16,11 @@ const Countdown = ({ ...props }) => {
       </View>
       <Text style={styles.semicolon}>:</Text>
       <View style={styles.squareBox}>
-        <Text style={styles.time}>00</Text>
+        <Text style={styles.time}>0{countdown.minutes}</Text>
       </View>
       <Text style={styles.semicolon}>:</Text>
       <View style={styles.squareBox}>
-        <Text style={styles.time}>00</Text>
+        <Text style={styles.time}>{countdown.seconds}</Text>
       </View>
     </View>
   );

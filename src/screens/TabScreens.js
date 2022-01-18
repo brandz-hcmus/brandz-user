@@ -15,7 +15,7 @@ const TabScreens = () => {
         <Tab.Navigator
             initialRouteName="Home"
             screenOptions={{
-                tabBarActiveTintColor: '#2f95dc',
+                tabBarActiveTintColor: '#000',
               }}
         >
             <Tab.Screen 
@@ -23,30 +23,43 @@ const TabScreens = () => {
                 component={Homepage}
                 options={{
                     tabBarLabel:'Home',
-                    tabBarIcon:({color})=>{
-                        <FontAwesome name="home" color={color} />
-                    }
+                    tabBarIcon:({color,size})=>(
+                        <FontAwesome name="home" color={color} size={size} />
+                    ),
+                    headerShown:false,
                 }}
             />
-            {/* <Tab.Screen 
-                name="ProductDetail"
-                component={ProductDetailPage}
+            <Tab.Screen 
+                name="ProductList"
+                component={ProductListPage}
                 options={{
-                    tabBarLabel:'Product Detail',
-                    tabBarIcon:({color})=>{
-                        <FontAwesome name="home" color={color} />
-                    }
+                    tabBarLabel:'Product List',
+                    tabBarIcon:({color,size})=>(
+                        <FontAwesome name="list" color={color} size={size} />
+                    ),
+                    headerShown:false
                 }}
-            /> */}
+            />
             <Tab.Screen 
                 name="Search"
                 component={SearchPage}
                 options={{
                     tabBarLabel:'Search',
-                    tabBarIcon:({color})=>{
-                        <FontAwesome name="bell" color={color}></FontAwesome>
-                    },
-                    tabBarBadge:3,
+                    tabBarIcon:({color,size})=>(
+                        <FontAwesome name="search" size={size} color={color}></FontAwesome>
+                    ),
+                    headerShown:false,
+                }}
+            />
+            <Tab.Screen 
+                name="Profile"
+                component={SearchPage}
+                options={{
+                    tabBarLabel:'Profile',
+                    tabBarIcon:({color,size})=>(
+                        <FontAwesome name="user-circle" size={size} color={color}></FontAwesome>
+                    ),
+                    headerShown:false,
                 }}
             />
 

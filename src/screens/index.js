@@ -26,17 +26,22 @@ export default function Navigation() {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName={ScreenName.MAIN_SCREEN}
-          screenOptions={{
-            headerShown: false,
-          }}
+          screenOptions={{headerShown:false }}
         >
           {/* Tab Screens */}
-          <Stack.Screen name={ScreenName.HOME_SCREEN} component={Homepage} />
+          <Stack.Screen name={ScreenName.MAIN_SCREEN} component={TabScreens} options={{headerShown:false}} />
+          {/* End tab screens */}
+          <Stack.Screen name={ScreenName.HOME_SCREEN} component={Homepage} options={{headerShown:false}} />
+          <Stack.Screen
+            name={ScreenName.SEARCH_SCREEN}
+            component={SearchPage}
+            options={{headerShown:false}} 
+          />
+
           <Stack.Screen
             name={ScreenName.TRANSPORT_METHOD_SCREEN}
             component={TransportMethod}
           />
-          {/* End tab screens */}
           <Stack.Screen name={ScreenName.CART_SCREEN} component={CartScreen} />
           <Stack.Screen name={ScreenName.PAYMENT_SCREEN} component={PayMent} />
           <Stack.Screen
@@ -44,11 +49,6 @@ export default function Navigation() {
             component={PaymentMethod}
           />
           <Stack.Screen name={ScreenName.ORDER_SCREEN} component={Order} />
-          <Stack.Screen name={ScreenName.MAIN_SCREEN} component={TabScreens} />
-          <Stack.Screen
-            name={ScreenName.SEARCH_SCREEN}
-            component={SearchPage}
-          />
           <Stack.Screen
             name={ScreenName.PRODUCTS_SCREEN}
             component={ProductListPage}

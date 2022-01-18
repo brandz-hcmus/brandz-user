@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { ScreenName } from '../share/configs/routers';
 import { ScreenSizes } from '../share/utils/sizes';
+import { colors } from '../styles/color';
 
 const Label = ({ title }) => {
   const navigation = useNavigation();
@@ -57,12 +58,11 @@ const styles = StyleSheet.create({
   },
   seeMoreText: {
     fontStyle: 'normal',
-    fontWeight: 'normal',
+    fontWeight: '600',
     fontSize: 12,
     lineHeight: 20,
     textAlign: 'center',
-    textDecorationLine: 'underline',
-    color: '#000',
+    color: colors.black,
   },
   divider: {
     width: ScreenSizes.vw *0.9,

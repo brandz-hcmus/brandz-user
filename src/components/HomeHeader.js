@@ -14,61 +14,73 @@ import { Observer } from 'mobx-react';
 import { cart } from '../store/cart';
 import SearchResult from './SearchResult';
 import useDebounce from '../share/utils/async';
-import {ProductListData} from '../share/utils/constants'
+import { ProductListData } from '../share/utils/constants';
 import StaticImages from '../share/static/images';
 
-const HomeHeader = ({ }) => {
+const HomeHeader = ({}) => {
   const [sampleText, setSampleText] = useState('');
   const navigation = useNavigation();
-  const [visible,setVisible]=useState(false);
-  const [dataSearch,setDataSearch]=useState();
-  const [notFound,setNotFound]=useState(null);
+  const [visible, setVisible] = useState(false);
+  const [dataSearch, setDataSearch] = useState();
+  const [notFound, setNotFound] = useState(null);
+
+  const debounceSearch = useDebounce(sampleText, 500);
+
   const _onMoveCartScreen = () => {
     navigation.navigate(ScreenName.CART_SCREEN);
   };
+
   const _onChangeText = (text) => {
     setSampleText(text);
   };
-  const debounceSearch = useDebounce(sampleText, 500);
-  const _handleSearchProducts=(searchText)=>{
-    let res=[];
-    ProductListData.forEach(item=>{
-      if(item.searchTerm.includes(searchText.toLowerCase()) || item.title.toLowerCase().includes(searchText.toLowerCase())){
+
+  const _handleSearchProducts = (searchText) => {
+    let res = [];
+    ProductListData.forEach((item) => {
+      if (
+        item.searchTerm.includes(searchText.toLowerCase()) ||
+        item.title.toLowerCase().includes(searchText.toLowerCase())
+      ) {
         res.push(item);
       }
-    })
+    });
     return res;
-  }
-  
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     if (debounceSearch) {
       console.log('Searching...', debounceSearch);
-      let res=_handleSearchProducts(debounceSearch);
-      console.log('Co data khum?',res.length);
-      if(res.length!==0){
+      let res = _handleSearchProducts(debounceSearch);
+      console.log('Co data khum?', res.length);
+      if (res.length !== 0) {
         setVisible(true);
         setDataSearch(res);
         setNotFound(null);
-      }else{
+      } else {
         setVisible(true);
         setDataSearch([]);
         setNotFound('Không tìm thấy sản phẩm cần tìm');
       }
     }
-  },[debounceSearch])
-  const _onBlur=()=>{
+  }, [debounceSearch]);
+
+  const _onBlur = () => {
     setVisible(false);
     setSampleText('');
     setDataSearch([]);
     setNotFound(null);
+  };
+
+  const _navigateHome=()=>{
+    navigation.navigate(ScreenName.HOME_SCREEN);
   }
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity onPress={()=>navigation.navigate(ScreenName.MAIN_SCREEN)}>
-
-        <Image source={StaticImages.brandz} style={styles.brandzLogo} />
+        <TouchableOpacity
+          onPress={_navigateHome}
+        >
+          <Image source={StaticImages.brandz} style={styles.brandzLogo} />
         </TouchableOpacity>
         <View style={styles.searchWrapper}>
           <Feather
@@ -83,6 +95,7 @@ const HomeHeader = ({ }) => {
             onChangeText={_onChangeText}
             value={sampleText}
             onBlur={_onBlur}
+            autoFocus={false}
           ></TextInput>
           <Feather
             style={styles.cameraIcon}
@@ -127,10 +140,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
   },
-  brandzLogo:{
+  brandzLogo: {
     width: 32,
     height: 32,
-    borderRadius:16,
+    borderRadius: 16,
   },
   searchWrapper: {
     width: 310,
