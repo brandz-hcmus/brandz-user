@@ -7,12 +7,15 @@ const SearchResult = ({visible,data,notFound}) => {
     if(!visible) return null;
     // if(visible && data.length ==0 && !notFound) return null;
 
-    // if(notFound) return <Text>{notFound}</Text>
+    if(notFound){
+        console.log('not found ne')
+        return <Text>{notFound}</Text>
+    } 
     return (
         <View style={styles.wrapper}>
         {visible && <ScrollView>
-            {[1,2,3,4,5,6,7,8].map((item,index)=>(
-                <SearchResultCard />
+            {data.map((item,index)=>(
+                <SearchResultCard item={item} key={index} />
             ))}
         </ScrollView>}
     </View>

@@ -7,16 +7,15 @@ import { colors } from '../styles/color'
 import { FormatVND } from '../share/utils/formatter'
 
 
-const SearchResultCard = () => {
-    const sampleProduct=ProductData[0];
+const SearchResultCard = ({item}) => {
     return (
         <View style={styles.wrapper}>
-            <Image source={StaticImages.product1} style={styles.image}></Image>
+            <Image source={item.srcImg} style={styles.image}></Image>
             <View style={styles.infoWrapper}>
-                <Text style={styles.title}>{sampleProduct.title}</Text>
-                <Text style={styles.salePrice}>{FormatVND(sampleProduct.salePrice)} đ</Text>
-                <Text style={styles.price}>{FormatVND(sampleProduct.price)} đ</Text>
-                <Image source={StaticImages.hugu} style={styles.logoBU}></Image>
+                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.salePrice}>{FormatVND(item.salePrice)} đ</Text>
+                <Text style={styles.price}>{FormatVND(item.price)} đ</Text>
+                <Image source={item.BULogoSrcImg} style={styles.logoBU}></Image>
             </View>
         </View>
     )

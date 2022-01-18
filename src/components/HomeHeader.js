@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -13,64 +13,91 @@ import { Observer } from 'mobx-react';
 import { cart } from '../store/cart';
 import SearchResult from './SearchResult';
 import useDebounce from '../share/utils/async';
+import {ProductListData} from '../share/utils/constants'
 
-const HomeHeader = ({setSearchText}) => {
-  const [sampleText,setSampleText]=useState("");
+const HomeHeader = ({ }) => {
+  const [sampleText, setSampleText] = useState('');
   const navigation = useNavigation();
+  const [visible,setVisible]=useState(false);
+  const [dataSearch,setDataSearch]=useState();
+  const [notFound,setNotFound]=useState(null);
   const _onMoveCartScreen = () => {
     navigation.navigate(ScreenName.CART_SCREEN);
   };
-  const _onChangeText=(text)=>{
+  const _onChangeText = (text) => {
     setSampleText(text);
+  };
+  const debounceSearch = useDebounce(sampleText, 500);
+  const _handleSearchProducts=(searchText)=>{
+    let res=[];
+    ProductListData.forEach(item=>{
+      if(item.searchTerm.includes(searchText)){
+        res.push(item);
+      }
+    })
+    return res;
   }
-  const debounceSearch=useDebounce(sampleText,500);
-  if(debounceSearch){
-    console.log("Searching...",debounceSearch);
-    setSearchText(debounceSearch)
-  }
+  
+
+  useEffect(()=>{
+    if (debounceSearch) {
+      console.log('Searching...', debounceSearch);
+      let res=_handleSearchProducts(debounceSearch);
+      console.log('Co data khum?',res.length);
+      if(res.length!==0){
+        setVisible(true);
+        setDataSearch(res);
+        setNotFound(null);
+      }else{
+        setVisible(false);
+        setDataSearch([]);
+        setNotFound('No matching data...');
+      }
+    }
+  },[debounceSearch])
+  
   return (
     <>
-    <View style={styles.container}>
-      <View style={styles.searchWrapper}>
-        <Feather
-          style={styles.searchIcon}
-          name="search"
-          size={20}
-          color="black"
-        />
-        <TextInput
-          style={styles.inputWrapper}
-          placeholder="Tìm kiếm..."
-          onChangeText={_onChangeText}
-          
-        ></TextInput>
-        <Feather
-          style={styles.cameraIcon}
-          name="camera"
-          size={20}
-          color="black"
-        />
+      <View style={styles.container}>
+        <View style={styles.searchWrapper}>
+          <Feather
+            style={styles.searchIcon}
+            name="search"
+            size={20}
+            color="black"
+          />
+          <TextInput
+            style={styles.inputWrapper}
+            placeholder="Tìm kiếm..."
+            onChangeText={_onChangeText}
+          ></TextInput>
+          <Feather
+            style={styles.cameraIcon}
+            name="camera"
+            size={20}
+            color="black"
+          />
+        </View>
+        <TouchableOpacity onPress={_onMoveCartScreen}>
+          <Ionicons
+            style={styles.icon}
+            name="cart-outline"
+            size={24}
+            color="white"
+          />
+          <Observer>
+            {() => {
+              const len = cart.cartLen;
+              return (
+                <View style={styles.cartCount}>
+                  <Text style={styles.cartCountText}>{len}</Text>
+                </View>
+              );
+            }}
+          </Observer>
+        </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={_onMoveCartScreen}>
-        <Ionicons
-          style={styles.icon}
-          name="cart-outline"
-          size={24}
-          color="white"
-        />
-        <Observer>
-          {() => {
-            const len = cart.cartLen;
-            return (
-              <View style={styles.cartCount}>
-                <Text style={styles.cartCountText}>{len}</Text>
-              </View>
-            );
-          }}
-        </Observer>
-      </TouchableOpacity>
-    </View>
-    <SearchResult visible={true} />
+      <SearchResult visible={visible} data={dataSearch} notFound={notFound} />
     </>
   );
 };

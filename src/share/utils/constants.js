@@ -161,6 +161,7 @@ export const ProductListData=[
     {
         id:1,
         title:'Áo hoodie trắng đen',
+        searchTerm:'ao hoodie trang den',
         srcImg:StaticImages.product1,
         salePrice:66000,
         price:174000,
@@ -170,6 +171,7 @@ export const ProductListData=[
     {
         id:2,
         title:'Quần tây âu',
+        searchTerm:'quan tay au',
         srcImg:StaticImages.product2,
         salePrice:76000,
         price:150000,
@@ -179,6 +181,7 @@ export const ProductListData=[
     {
         id:3,
         title:'Áo sweater loang màu',
+        searchTerm:'ao sweater loang mau',
         srcImg:StaticImages.product3,
         salePrice:90000,
         price:200000,
@@ -188,6 +191,7 @@ export const ProductListData=[
     {
         id:4,
         title:'Đồng hồ mạ vàng',
+        searchTerm:'dong ho ma vang',
         srcImg:StaticImages.product4,
         salePrice:89000,
         price:169000,
@@ -197,6 +201,7 @@ export const ProductListData=[
     {
         id:5,
         title:'Đồng hồ ánh kim',
+        searchTerm:'dong ho anh kim',
         srcImg:StaticImages.product5,
         salePrice:76000,
         price:201000,
@@ -206,6 +211,7 @@ export const ProductListData=[
     {
         id:6,
         title:'Thắt lưng nhiều màu',
+        searchTerm:'that lung nhieu mau',
         srcImg:StaticImages.product6,
         salePrice:89000,
         price:199000,
