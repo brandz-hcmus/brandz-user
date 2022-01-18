@@ -1,10 +1,11 @@
+import { useRoute } from '@react-navigation/native'
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import HomeHeader from '../components/HomeHeader'
 import SearchResult from '../components/SearchResult'
 import SearchResultCard from '../components/SearchResultCard'
 
-const SearchPage = () => {
+const SearchPage = ({}) => {
     return (
         <SafeAreaView>
             <HomeHeader />
@@ -14,4 +15,8 @@ const SearchPage = () => {
 
 export default SearchPage
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    wrapper:{
+        position: 'relative',
+    }
+})

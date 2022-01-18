@@ -33,7 +33,7 @@ const HomeHeader = ({ }) => {
   const _handleSearchProducts=(searchText)=>{
     let res=[];
     ProductListData.forEach(item=>{
-      if(item.searchTerm.includes(searchText.toLowerCase())){
+      if(item.searchTerm.includes(searchText.toLowerCase()) || item.title.toLowerCase().includes(searchText.toLowerCase())){
         res.push(item);
       }
     })
@@ -66,7 +66,7 @@ const HomeHeader = ({ }) => {
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity onPress={()=>navigation.navigate(ScreenName.HOME_SCREEN)}>
+        <TouchableOpacity onPress={()=>navigation.navigate(ScreenName.MAIN_SCREEN)}>
 
         <Image source={StaticImages.brandz} style={styles.brandzLogo} />
         </TouchableOpacity>

@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     padding:8,
     height: ScreenSizes.vh / 2.5,
     position: 'absolute',
-    top: 60,
+    top:88,
     left: 8,
     zIndex: 999,
   },
