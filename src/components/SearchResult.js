@@ -17,7 +17,7 @@ const SearchResult = ({ visible, data, notFound }) => {
   }
   return (
     <View style={styles.wrapper}>
-        <Text style={styles.resultTitle}>Kết quả tìm kiếm :</Text>
+      <Text style={styles.resultTitle}>Kết quả tìm kiếm :</Text>
       {visible && (
         <ScrollView>
           {data.map((item) => (
@@ -37,10 +37,10 @@ const styles = StyleSheet.create({
     width: ScreenSizes.vw * 0.96,
     display: 'flex',
     flexDirection: 'column',
-    padding:8,
+    padding: 8,
     height: ScreenSizes.vh / 2.5,
     position: 'absolute',
-    top:88,
+    top: 88,
     left: 8,
     zIndex: 999,
   },
@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-  resultTitle:{
-      fontStyle:'normal',
-      fontWeight:'600',
-      color: colors.white,
-      fontSize:16,
-      marginBottom:16
-  }
+  resultTitle: {
+    fontStyle: 'normal',
+    fontWeight: '600',
+    color: colors.white,
+    fontSize: 16,
+    marginBottom: 16,
+  },
 });

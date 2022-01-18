@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, ScrollView, SafeAreaView, View,Text } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView, View, Text } from 'react-native';
 import HomeHeader from '../components/HomeHeader';
 import Banner from '../components/Banner';
 import CategoryList from '../components/CategoryList';
@@ -12,7 +12,7 @@ import SearchResult from '../components/SearchResult';
 export function Homepage() {
   return (
     <SafeAreaView style={styles.container}>
-       <HomeHeader />
+      <HomeHeader />
       <ScrollView style={styles.wrapper}>
         <Banner />
         <CategoryList />
@@ -30,8 +30,9 @@ export function Homepage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: Platform.OS === 'ios' ? 0 : 60,
   },
-  wrapper:{
+  wrapper: {
     position: 'relative',
   },
   productWrapper: {

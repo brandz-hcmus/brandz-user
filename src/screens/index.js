@@ -26,16 +26,24 @@ export default function Navigation() {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName={ScreenName.MAIN_SCREEN}
-          screenOptions={{headerShown:false }}
+          screenOptions={{ headerShown: false }}
         >
           {/* Tab Screens */}
-          <Stack.Screen name={ScreenName.MAIN_SCREEN} component={TabScreens} options={{headerShown:false}} />
+          <Stack.Screen
+            name={ScreenName.MAIN_SCREEN}
+            component={TabScreens}
+            options={{ headerShown: false }}
+          />
           {/* End tab screens */}
-          <Stack.Screen name={ScreenName.HOME_SCREEN} component={Homepage} options={{headerShown:false}} />
+          <Stack.Screen
+            name={ScreenName.HOME_SCREEN}
+            component={Homepage}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name={ScreenName.SEARCH_SCREEN}
             component={SearchPage}
-            options={{headerShown:false}} 
+            options={{ headerShown: false }}
           />
 
           <Stack.Screen

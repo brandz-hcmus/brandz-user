@@ -16,6 +16,7 @@ import SearchResult from './SearchResult';
 import useDebounce from '../share/utils/async';
 import { ProductListData } from '../share/utils/constants';
 import StaticImages from '../share/static/images';
+import { colors } from '../styles/color';
 
 const HomeHeader = ({}) => {
   const [sampleText, setSampleText] = useState('');
@@ -71,15 +72,13 @@ const HomeHeader = ({}) => {
     setNotFound(null);
   };
 
-  const _navigateHome=()=>{
+  const _navigateHome = () => {
     navigation.navigate(ScreenName.HOME_SCREEN);
-  }
+  };
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={_navigateHome}
-        >
+        <TouchableOpacity onPress={_navigateHome}>
           <Image source={StaticImages.brandz} style={styles.brandzLogo} />
         </TouchableOpacity>
         <View style={styles.searchWrapper}>
@@ -134,11 +133,12 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    backgroundColor: 'rgba(0,0,0,0.8)',
+    backgroundColor: colors.black,
     height: 40,
     width: '100%',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    paddingBottom: 10,
   },
   brandzLogo: {
     width: 32,
