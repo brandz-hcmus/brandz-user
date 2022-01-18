@@ -4,6 +4,7 @@ const StaticImages={
     mende: require('../../../static/logo/mende.jpg'),
     swe: require('../../../static/logo/swe.jpg'),
     davies: require('../../../static/logo/davies.jpg'),
+    brandz: require('../../../static/logo/brandz.jpg'),
 
     //banner
     banner: require('../../../static/banner.jpg'),

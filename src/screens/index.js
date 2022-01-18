@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import TabScreens from './TabScreens';
 import { Homepage } from './Homepage';
-import NotificationPage from './NotificationPage';
 import ProductListPage from './ProductList';
 import ProductDetailPage from './ProductDetailPage';
 import { ScreenName, ScreenTitle } from '../share/configs/routers';
@@ -15,6 +14,7 @@ import { CartHeader } from '../header/cart';
 import { TransportMethod } from './tranport-method';
 import { StatusBar } from 'expo-status-bar';
 import { colors } from '../styles/color';
+import SearchPage from './SearchPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,8 +46,8 @@ export default function Navigation() {
           <Stack.Screen name={ScreenName.ORDER_SCREEN} component={Order} />
           <Stack.Screen name={ScreenName.MAIN_SCREEN} component={TabScreens} />
           <Stack.Screen
-            name={ScreenName.NOTIFICATION_SCREEN}
-            component={NotificationPage}
+            name={ScreenName.SEARCH_SCREEN}
+            component={SearchPage}
           />
           <Stack.Screen
             name={ScreenName.PRODUCTS_SCREEN}

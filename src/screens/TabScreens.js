@@ -2,11 +2,11 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { Homepage } from '../screens/Homepage';
-import NotificationPage from '../screens/NotificationPage';
 import {FontAwesome} from '@expo/vector-icons'
 import ProductListPage from './ProductList';
 import ProductDetailPage from './ProductDetailPage';
 import ProductEvaluate from '../components/ProductEvaluate'
+import SearchPage from './SearchPage';
 
 const Tab=createBottomTabNavigator();
 
@@ -39,10 +39,10 @@ const TabScreens = () => {
                 }}
             /> */}
             <Tab.Screen 
-                name="Notification"
-                component={NotificationPage}
+                name="Search"
+                component={SearchPage}
                 options={{
-                    tabBarLabel:'Notification',
+                    tabBarLabel:'Search',
                     tabBarIcon:({color})=>{
                         <FontAwesome name="bell" color={color}></FontAwesome>
                     },

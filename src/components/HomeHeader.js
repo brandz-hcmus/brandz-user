@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   Text,
+  Image,
 } from 'react-native';
 import { AntDesign, Feather, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -14,6 +15,7 @@ import { cart } from '../store/cart';
 import SearchResult from './SearchResult';
 import useDebounce from '../share/utils/async';
 import {ProductListData} from '../share/utils/constants'
+import StaticImages from '../share/static/images';
 
 const HomeHeader = ({ }) => {
   const [sampleText, setSampleText] = useState('');
@@ -64,6 +66,10 @@ const HomeHeader = ({ }) => {
   return (
     <>
       <View style={styles.container}>
+        <TouchableOpacity onPress={()=>navigation.navigate(ScreenName.HOME_SCREEN)}>
+
+        <Image source={StaticImages.brandz} style={styles.brandzLogo} />
+        </TouchableOpacity>
         <View style={styles.searchWrapper}>
           <Feather
             style={styles.searchIcon}
@@ -120,6 +126,11 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+  },
+  brandzLogo:{
+    width: 32,
+    height: 32,
+    borderRadius:16,
   },
   searchWrapper: {
     width: 310,

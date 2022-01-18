@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   Platform,
+  TextInput,
 } from 'react-native';
 import { Entypo, Feather, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -27,8 +28,14 @@ const PageHeader = ({ title }) => {
         </TouchableOpacity>
         <Text style={styles.title}>{title}</Text>
       </View>
+      
       <View style={styles.iconWrapper}>
+      <TouchableOpacity
+          onPress={() => navigation.navigate(ScreenName.SEARCH_SCREEN)}
+        >
+
         <Feather style={styles.icon} name="search" size={24} color="white" />
+        </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate(ScreenName.CART_SCREEN)}
         >
