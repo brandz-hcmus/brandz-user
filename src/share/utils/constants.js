@@ -231,5 +231,4 @@ export const ProductDetailDataSample=[
             {title:'Chính sách đổi trả',content:'Áp dụng'},
         ]
     },
-    
 ]

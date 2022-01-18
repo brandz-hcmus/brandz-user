@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -11,13 +11,25 @@ import { useNavigation } from '@react-navigation/native';
 import { ScreenName } from '../share/configs/routers';
 import { Observer } from 'mobx-react';
 import { cart } from '../store/cart';
+import SearchResult from './SearchResult';
+import useDebounce from '../share/utils/async';
 
-const HomeHeader = () => {
+const HomeHeader = ({setSearchText}) => {
+  const [sampleText,setSampleText]=useState("");
   const navigation = useNavigation();
   const _onMoveCartScreen = () => {
     navigation.navigate(ScreenName.CART_SCREEN);
   };
+  const _onChangeText=(text)=>{
+    setSampleText(text);
+  }
+  const debounceSearch=useDebounce(sampleText,500);
+  if(debounceSearch){
+    console.log("Searching...",debounceSearch);
+    setSearchText(debounceSearch)
+  }
   return (
+    <>
     <View style={styles.container}>
       <View style={styles.searchWrapper}>
         <Feather
@@ -29,6 +41,8 @@ const HomeHeader = () => {
         <TextInput
           style={styles.inputWrapper}
           placeholder="Tìm kiếm..."
+          onChangeText={_onChangeText}
+          
         ></TextInput>
         <Feather
           style={styles.cameraIcon}
@@ -56,6 +70,8 @@ const HomeHeader = () => {
         </Observer>
       </TouchableOpacity>
     </View>
+    <SearchResult visible={true} />
+    </>
   );
 };
 
