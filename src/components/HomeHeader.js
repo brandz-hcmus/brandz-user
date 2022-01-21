@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 8,
     fontWeight: 'bold',
-    top: 1.5,
+    top: 4,
   },
   inputWrapper: {
     paddingLeft: 30,
@@ -165,8 +165,8 @@ const styles = StyleSheet.create({
   cameraIcon: {
     position: 'absolute',
     fontWeight: 'bold',
-    top: 1.5,
-    left: 264,
+    top: 5,
+    left: 280,
   },
   cartCount: {
     width: 12,

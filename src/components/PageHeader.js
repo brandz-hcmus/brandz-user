@@ -28,13 +28,12 @@ const PageHeader = ({ title }) => {
         </TouchableOpacity>
         <Text style={styles.title}>{title}</Text>
       </View>
-      
+
       <View style={styles.iconWrapper}>
-      <TouchableOpacity
+        <TouchableOpacity
           onPress={() => navigation.navigate(ScreenName.SEARCH_SCREEN)}
         >
-
-        <Feather style={styles.icon} name="search" size={24} color="white" />
+          <Feather style={styles.icon} name="search" size={24} color="white" />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate(ScreenName.CART_SCREEN)}
@@ -70,6 +69,7 @@ const styles = StyleSheet.create({
     width: ScreenSizes.vw,
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingHorizontal: 5,
     paddingTop: Platform.OS === 'android' ? 65 : 14,
     paddingBottom: 14,
   },
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 4,
+    paddingRight: 10,
   },
   title: {
     fontStyle: 'normal',

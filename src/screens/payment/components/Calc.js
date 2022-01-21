@@ -24,7 +24,7 @@ export function Calc({ ship, totalPrice }) {
         </Text>
         <Text style={styles.smallText}>
           Tổng cộng:{' '}
-          <Text style={[styles.smallText, { color: colors.blueCyan }]}>
+          <Text style={[styles.smallText, { color: colors.red }]}>
             {NumberToVND(ship + totalPrice)}
           </Text>
         </Text>
