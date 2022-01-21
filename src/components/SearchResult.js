@@ -1,11 +1,16 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScreenSizes } from '../share/utils/sizes';
 import { colors } from '../styles/color';
 import SearchResultCard from './SearchResultCard';
+import { ScreenName } from '../share/configs/routers';
 
 const SearchResult = ({ visible, data, notFound }) => {
   if (!visible) return null;
+
+  const navigation = useNavigation();
 
   if (notFound) {
     console.log('not found ne');
@@ -15,13 +20,31 @@ const SearchResult = ({ visible, data, notFound }) => {
       </View>
     );
   }
+
+  const _navigateProductDetail = (item) => {
+    const { id, srcImg, title, salePrice, price, BULogoSrcImg } = item;
+    console.log('press ne');
+    navigation.navigate(ScreenName.PRODUCT_DETAIL_SCREEN, {
+      srcImg,
+      title,
+      salePrice,
+      price,
+      id,
+    });
+  };
+
   return (
     <View style={styles.wrapper}>
       <Text style={styles.resultTitle}>Kết quả tìm kiếm :</Text>
       {visible && (
         <ScrollView>
           {data.map((item) => (
-            <SearchResultCard item={item} key={item.id} />
+            <TouchableOpacity
+              onPress={() => _navigateProductDetail(item)}
+              key={item.id}
+            >
+              <SearchResultCard item={item} />
+            </TouchableOpacity>
           ))}
         </ScrollView>
       )}

@@ -11,7 +11,7 @@ export function Calc({ ship, totalPrice }) {
       </Text>
       <View>
         <Text style={styles.smallText}>
-          Phí ship:{' '}
+          Phí vận chuyển:{' '}
           <Text style={[styles.smallText, { color: colors.blueCyan }]}>
             {NumberToVND(ship)}
           </Text>
